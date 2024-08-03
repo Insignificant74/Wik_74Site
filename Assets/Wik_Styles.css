@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Public Pixel";
+  src: url("PublicPixel.ttf");
+}
+
+@font-face {
+  font-family: "Postal";
+  src: url("Postal.ttf");
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background: url(Background.jpg) center top repeat-y scroll dimgray;
+  color: #ffffdb;
+  font: 30px "Postal", sans-serif;
+  text-align: left;
+  text-shadow: 2px 2px 5px #aba69b;
+}
+
+hr {
+  margin: 30px;
+}
+
+a {
+  color: orange;
+}
+
+a:hover {
+  color: red;
+}
+
+#MainContainer {
+  height: 100%;
+  min-height: 100%;
+  background-color: transparent;
+  margin-bottom: -102px;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Header {
+  left: 82px;
+  height: 70px;
+  margin: 30px 0px 0px 0px;
+  text-align: center;
+}
+
+.Comment {
+  padding: 10px 10px 10px 10px;
+  color: ffffdb;
+  font: 12px "Public Pixel", sans-serif;
+  text-align: justify;
+}
+
+.TextBox {
+  color: black;
+  font: 25px "Postal", sans-serif;
+  text-align: justify;
+}
+
+.TextRight {
+  margin: 0px 20px 0px 60px;
+}
+
+.TextLeft {
+  margin: 0px 60px 0px 20px;
+}
+
+.ImageRight {
+  float: right;
+  padding-left: 30px;
+}
+
+.ImageLeft {
+  float: left;
+  padding-right: 30px;
+}
+
+.Background1 {
+  padding: 25px 60px 25px 60px;
+  background: url(DIV_background_1.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.Background2 {
+  padding: 25px 60px 25px 60px;
+  background: url(DIV_background_2.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.Background3 {
+  padding: 25px 60px 25px 60px;
+  background: url(DIV_background_3.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.Background4 {
+  padding: 25px 60px 25px 60px;
+  background: url(DIV_background_4.png) no-repeat;
+  background-size: 100% 100%;
+}
