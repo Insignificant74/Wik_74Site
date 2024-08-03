@@ -11,37 +11,30 @@
     <style>
     @font-face { font-family: 'Public Pixel'; src: url("PublicPixel.ttf"); }
     @font-face { font-family: 'Postal'; src: url("Postal.ttf"); }
-    body { padding: 0px; margin: 0px; background: url(Background.jpg) center top repeat-y scroll dimgray; color: #ffffdB; font: 30px 'Postal', sans-serif; text-align: left;}
+    body { padding: 0px; margin: 0px; background: url(Background.jpg) center top repeat-y scroll dimgray; color: #ffffdb; font: 30px 'Postal', sans-serif; text-align: left;}
     hr {margin: 30px;}
     #MainContainer {height: 100%; min-height: 100%; background-color: transparent; margin-bottom: -102px; width: 1000px; margin-left: auto; margin-right: auto;}
-    #Header {position: left; left: 82px; height: 70px; margin: 30px 0px 0px 0px; text-align: left; }
+    .Header {left: 82px; height: 70px; margin: 30px 0px 0px 0px; text-align: center; }
     .Comment {padding: 10px 10px 10px 10px; color: ffffdb; font: 12px 'Public Pixel',sans-serif; text-align: justify; }
-    .Text {color: black; font: 25px 'Postal',sans-serif; text-align: justify;}
-    .FarRight {margin: 0px 30px 0px 50px;}
-    .FarLeft {margin: 0px 50px 0px 30px;}
-    .Centred {margin: 0px 40px 0px 40px;}
-    .Background1 {padding: 25px 60px 100px 60px; background: url(DIV_background_1.png) no-repeat; background-size: 100% 100%;}
-    .Background2 {padding: 100px 60px 100px 60px; background: url(DIV_background_2.png) no-repeat; background-size: 100% 100%;}
-    .Background3 {padding: 25px 60px 100px 60px; background: url(DIV_background_3.png) no-repeat; background-size: 100% 100%;}
-    .Background4 {padding: 100px 60px 100px 60px; background: url(DIV_background_4.png) no-repeat; background-size: 100% 100%; }
+    .TextBox {color: black; font: 25px 'Postal',sans-serif; text-align: justify;}
+    .TextRight {margin: 0px 30px 0px 50px;}
+    .TextLeft {margin: 0px 50px 0px 30px;}
+    .Background1 {padding: 25px 60px 25px 60px; background: url(DIV_background_1.png) no-repeat; background-size: 100% 100%;}
+    .Background2 {padding: 25px 60px 25px 60px; background: url(DIV_background_2.png) no-repeat; background-size: 100% 100%;}
+    .Background3 {padding: 25px 60px 25px 60px; background: url(DIV_background_3.png) no-repeat; background-size: 100% 100%;}
+    .Background4 {padding: 25px 60px 25px 60px; background: url(DIV_background_4.png) no-repeat; background-size: 100% 100%; }
     </style>
 </head>
 
 <body>
-    <script>
-        document.getElementsByClassName("Text").forEach(Element.height = "500px");
-    </script>
     <div Id="MainContainer">
-        <h1 Id="Header">About Wik</h1>
-            <p class = "Comment">
-                I'm not putting in an index, who do you think i am, you know how to ctrl + f
-            </p>
-            <div class = "Text FarRight Background1">
-                <div style=" background-color: #ffffdB";>
+        <h1 class="Header">About Wik</h1>
+            <p class = "Comment"> The restraint to not use the Postal 1997 font here was unreal </p>
+            <div class = "TextBox TextLeft Background1">
                     <h2>Personal Data</h2>
                     name: Wiktor Kunicki <br>
                     born: 04/05/06 <br>
-                    interesting nicknames: Wik, Wikstar, Wikky Baby, Wicker Basket, My Candle, Wickee Kayay, Wikipedia, Wikky Kunikky, Wickey 4 Phones, Big Wik, BDW <br>
+                    interesting nicknames: Wik, Wikstar, Wikky Baby, Wicker Basket, My Candle, Wickee Kayay, Wikipedia, Wikky Kunikky, Wickey 4 Phones, Big Wik, <abbr title="Big Dig Wik">BDW</abbr> <br>
                     email: kunickiwiktor74@gmail.com <br>
                     my closest PO box: <br>
                     <address>
@@ -49,15 +42,13 @@
                         35-328 Rzeszów <br> 
                         Poland <br>
                     </address>
-                    that's all i think, you can always just email me
-                </div>
         </div>
             <div class = "Comment">
                 <p>might chuck random thoughts in between paragraphs, really give it that 2000s myspace feel</p>
             </div>
-        <h2>My hobbies include:</h2>
-        <h3>Hiking:</h3>
-            <div class = "Text FarLeft Background2">
+        <h2 class="Header">Hobbies:</h2>
+        <h3 class="Header">Hiking:</h3>
+            <div class = "TextBox TextRight Background2">
                     I love walking and climbing through different ranges, i have been all over The UK, from Snowdonia to the Highlands, aswell as Poland, 
                     including the tatras and Bieszczady. My greatest achievements in this are probably doing Crib Goch along with Glyder Fawr and 
                     Glyder Fach in one go aswell as the hardest routes up Tryfan all in awful conditions, but my truly greatest feat is doing the trail 
@@ -66,7 +57,7 @@
                     the top. 
             </div>
             <br>
-            <div class = "Text FarRight Background3">
+            <div class = "TextBox TextLeft Background3">
                     That was the first time i had been allowed to go off on my own (a decision that my mother regretted soon after my departure 
                     and then spent the next 3 hours panicking about) and it felt better than anything else did. After that trial by 14 year old me my
                     current goal has been to complete the eagle's perch trail and even extend it to Świnica. There have been two attempts at this so far.
@@ -78,7 +69,7 @@
             <div class = "Comment">
                 <p>Actually maybe i will put in an index, who are you to stop me</p>
             </div>
-            <div class = "Text Centred Background4">
+            <div class = "TextBox TextRight Background4">
                     This is a photo by 
                     <a href="http://podrozniczeretrospekcje.blogspot.com/2012/07/orla-perc-granaty-krzyzne.html">piechurek7 on blogger.com</a>. 
                     I personally feel that stopping to take images and narrow the experience down to a series of pixels takes away from the experience, 
@@ -86,15 +77,15 @@
                     source of images that i found to give the trail any justice (while having no cc license), and messing around with embedding videos 
                     and rights to those videos would be too bothersome. You're a capable young person, if you were that interested you could do your own 
                     research.
-                <a href="http://podrozniczeretrospekcje.blogspot.com/2012/07/orla-perc-granaty-krzyzne.html">
+                    <a href="http://podrozniczeretrospekcje.blogspot.com/2012/07/orla-perc-granaty-krzyzne.html">
                     <img src="Orla Perc.jpg" alt="http://1.bp.blogspot.com/-236j3YcvOok/UDFSXob-LHI/AAAAAAAAONM/kvg_cz9byb8/s640/DSC01394.JPG">                    
                 </a>
                 </div>
                 <div class = "Comment">
-                    <p>Background by <a href="http://robthunder.com/">Robert Darrell, 2007</a></p>
-                    <p>If you deserve the assets, you're capable of taking them yourself, I'm not doing everything for you</p>
-                </div>
+                <p>Background by <a href="http://robthunder.com/">Robert Darrell, 2007</a></p>
+                <p>If you deserve the assets, you're capable of taking them yourself, I'm not doing everything for you</p>
             </div>
+        </div>
     </div>
 </body>
 </html>
