@@ -104,6 +104,14 @@ a:hover {
   background-size: 100% 100%;
 }
 
+th, td {
+  padding: 15px;
+}
+
+table {
+  padding: 60px 0px;
+}
+
 @media (max-width: 900px) {
   .ImageLeft {
     width: 100%;
