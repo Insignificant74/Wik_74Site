@@ -113,16 +113,25 @@ table {
 }
 
 @media (max-width: 900px) {
+
+  body {
+    font-size: 20px;
+  }
+  
+  table {
+    padding: 140px 0px;
+  }
+
+  th, td {
+    padding: 12px;
+  }
+
   .ImageLeft {
     width: 100%;
   }
 
   .ImageRight {
     width: 100%;
-  }
-
-  body {
-    font-size: 20px;
   }
 
   .Comment {
@@ -151,6 +160,15 @@ table {
 }
 
 @media (max-width: 500px) {
+
+  table {
+    padding: 140px 0px;
+  }
+
+  th, td {
+    padding: 3px;
+  }
+
   .ImageLeft {
     width: 100%;
   }
