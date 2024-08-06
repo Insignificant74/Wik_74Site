@@ -9,7 +9,6 @@
 }
 
 body {
-  position: center;
   padding: 0px;
   margin: auto;
   background: url(Background.jpg) top repeat-y scroll dimgray;
@@ -31,6 +30,62 @@ a {
 
 a:hover {
   color: red;
+}
+
+div div a {
+  color: red;
+}
+
+div div a:hover {
+  color: blue;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+table {
+  padding: 60px 0px;
+}
+
+nav h1,
+nav h2,
+nav h3,
+nav h4,
+nav h5,
+nav h6,
+nav ul {
+  margin: 0;
+}
+
+#Index {
+  position: fixed;
+  right: -150px;
+  width: 12%;
+  font-size: 18px;
+  padding: 30px 0px 30px 0px;
+}
+
+#Index.is-active {
+  right: 0px;
+}
+
+#Index a {
+  color: black;
+}
+
+#Index a:hover {
+  color: blue;
+}
+
+div h1,
+div h2,
+div h3,
+div h4,
+div h5,
+div h6 {
+  margin: 0px;
 }
 
 #MainContainer {
@@ -104,25 +159,17 @@ a:hover {
   background-size: 100% 100%;
 }
 
-th, td {
-  padding: 15px;
-}
-
-table {
-  padding: 60px 0px;
-}
-
 @media (max-width: 900px) {
-
   body {
     font-size: 20px;
   }
-  
+
   table {
     padding: 140px 0px;
   }
 
-  th, td {
+  th,
+  td {
     padding: 12px;
   }
 
@@ -145,27 +192,27 @@ table {
   .Background1 {
     padding: 60px 6%;
   }
-  
+
   .Background2 {
     padding: 40px 6%;
   }
-  
+
   .Background3 {
     padding: 40px 6%;
   }
-  
+
   .Background4 {
     padding: 40px 6%;
   }
 }
 
 @media (max-width: 500px) {
-
   table {
     padding: 140px 0px;
   }
 
-  th, td {
+  th,
+  td {
     padding: 3px;
   }
 
@@ -192,15 +239,15 @@ table {
   .Background1 {
     padding: 60px 6%;
   }
-  
+
   .Background2 {
     padding: 40px 6%;
   }
-  
+
   .Background3 {
     padding: 40px 6%;
   }
-  
+
   .Background4 {
     padding: 40px 6%;
   }
