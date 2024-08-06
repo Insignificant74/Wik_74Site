@@ -1,4 +1,8 @@
 window.onload = function () {
+	setToggleIndex.call();
+	resizeImages.call();
+}
+function setToggleIndex(){
 	const Index = document.querySelector('#Index');
 	if (window.innerWidth > 900){
 		Index.addEventListener('mouseover', function () {

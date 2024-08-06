@@ -10,11 +10,11 @@
 
 body {
   margin: auto;
-  background: url(Background.jpg) top repeat-y scroll dimgray;
+  background: url(Wik_Background.jpg) top repeat-y scroll dimgray;
   background-size: 70% auto;
   width: 65%;
   color: #ffffdb;
-  font: "Postal", sans-serif;
+  font-family: "Postal", sans-serif;
   text-shadow: 2px 2px 5px #aba69b;
 }
 

@@ -1,7 +1,6 @@
-window.onload = function () {
+function resizeImages(){
 	const ImageLefts = document.querySelectorAll('.ImageLeft');
 	const ImageRights = document.querySelectorAll('.ImageRight');
-	
 	if (window.innerWidth > 900){
 		ImageLefts.forEach(resizeBackground);
 		ImageRights.forEach(resizeBackground);
@@ -11,10 +10,7 @@ window.onload = function () {
 			ImageRights.forEach(resizeBackground);
 		}, true);
 	}
-	else{
-	}
 }
-
 function resizeBackground(element){
 	const elementHeight = element.offsetHeight;
 	var parentElement = element.parentElement;

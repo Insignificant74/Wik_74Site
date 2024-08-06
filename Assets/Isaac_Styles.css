@@ -1,0 +1,18 @@
+@font-face{
+  font-family: 'StickyPops';
+  src: url("StickyPops.otf");
+}
+
+@font-face{
+  font-family: 'Cyberthrone';
+  src: url("Cyberthrone.ttf");
+}
+
+body {
+  background: url(Isaac_Background.jpg) top repeat-y  dimgray;
+  background-size: 100% auto;
+  width: 100%;
+  color: #d30eff;
+  font: "Cyberthrone", sans-serif;
+  text-shadow: 2px 2px 5px #d30eff;
+}
