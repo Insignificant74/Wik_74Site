@@ -9,14 +9,12 @@
 }
 
 body {
-  padding: 0;
   margin: auto;
   background: url(Background.jpg) top repeat-y scroll dimgray;
   background-size: 70% auto;
   width: 65%;
   color: #ffffdb;
-  font: 187.5% "Postal", sans-serif;
-  text-align: left;
+  font: "Postal", sans-serif;
   text-shadow: 2px 2px 5px #aba69b;
 }
 
@@ -34,21 +32,6 @@ div div a {
 
 div div a:hover {
   color: blue;
-}
-
-th,
-td {
-  padding: 2%;
-}
-
-nav h1,
-nav h2,
-nav h3,
-nav h4,
-nav h5,
-nav h6,
-nav ul {
-  margin: 0;
 }
 
 #Index {
@@ -71,59 +54,20 @@ nav ul {
   color: blue;
 }
 
-div h1,
-div h2,
-div h3,
-div h4,
-div h5,
-div h6 {
-  margin: 0;
-}
-
 #MainContainer {
   width: 100%;
   min-height: 100%;
   background-color: transparent;
 }
 
-.Header {
-  text-align: center;
-}
-
 .Comment {
-  padding: 2% 6%;
   color: ffffdb;
   font: 0.4em "Public Pixel", sans-serif;
-  text-align: justify;
-}
-
-.ImageRight {
-  float: right;
-  padding-left: 3%;
-  max-height: 100%;
-  max-width: 50%;
-}
-
-.ImageLeft {
-  float: left;
-  padding-right: 3%;
-  max-height: 100%;
-  max-width: 50%;
 }
 
 .TextBox {
   color: black;
   font: 0.75em "Postal", sans-serif;
-  text-align: justify;
-  width: 80%;
-}
-
-.TextRight {
-  margin: 0 1% 0 6%;
-}
-
-.TextLeft {
-  margin: 0 6% 0 1%;
 }
 
 .Background1 {
@@ -148,24 +92,4 @@ div h6 {
   padding: 0 6%;
   background: url(Paper_Middle_4.png) no-repeat;
   background-size: 100% 100%;
-}
-
-@media (max-width: 900px) {
-  body {
-    font-size: 150%;
-  }
-
-  .ImageLeft {
-    max-width: 100%;
-  }
-
-  .ImageRight {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-body {
-    font-size: 100%;
-  }
 }

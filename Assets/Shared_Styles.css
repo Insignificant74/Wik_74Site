@@ -1,0 +1,87 @@
+
+  body {
+    font: 187.5%;
+    padding: 0;
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 2%;
+  }
+  
+  nav h1,
+  nav h2,
+  nav h3,
+  nav h4,
+  nav h5,
+  nav h6,
+  nav ul {
+    margin: 0;
+  }
+  
+  div h1,
+  div h2,
+  div h3,
+  div h4,
+  div h5,
+  div h6 {
+    margin: 0;
+  }
+  
+  .Header {
+    text-align: center;
+  }
+  
+  .Comment {
+    padding: 2% 6%;
+    text-align: justify;
+  }
+
+  .ImageRight {
+    float: right;
+    padding-left: 3%;
+    max-height: 100%;
+    max-width: 50%;
+  }
+  
+  .ImageLeft {
+    float: left;
+    padding-right: 3%;
+    max-height: 100%;
+    max-width: 50%;
+  }
+  
+  .TextBox {
+    text-align: justify;
+    width: 80%;
+  }
+  
+  .TextRight {
+    margin: 0 1% 0 6%;
+  }
+  
+  .TextLeft {
+    margin: 0 6% 0 1%;
+  }
+  
+  @media (max-width: 900px) {
+    body {
+      font-size: 150%;
+    }
+  
+    .ImageLeft {
+      max-width: 100%;
+    }
+  
+    .ImageRight {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+  body {
+      font-size: 100%;
+    }
+  }
+  
