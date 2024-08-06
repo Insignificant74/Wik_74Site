@@ -8,4 +8,8 @@ window.onload = function () {
 	Index.addEventListener('mouseout', function () {
 		Index.classList.remove('is-active');
 	});
+
+	window.addEventListener('resize', function(event) {
+
+	}, true);
 }
