@@ -34,11 +34,17 @@ div div a:hover {
   color: blue;
 }
 
+#MainContainer {
+  width: 100%;
+  min-height: 100%;
+  background-color: transparent;
+}
+
 #Index {
   position: fixed;
   right: -10.45%;
   width: 12%;
-  font-size: 0.6em;
+  font-size: 0.8em;
   padding: 0;
 }
 
@@ -52,12 +58,6 @@ div div a:hover {
 
 #Index a:hover {
   color: blue;
-}
-
-#MainContainer {
-  width: 100%;
-  min-height: 100%;
-  background-color: transparent;
 }
 
 .Comment {
@@ -76,7 +76,7 @@ div div a:hover {
   background-size: 100% 100%;
 }
 
-.Border{
+.Border {
   object-fit: contain;
   max-width: 92%;
   display: block;
@@ -98,4 +98,18 @@ div div a:hover {
   padding: 0 6%;
   background: url(Paper_Middle_4.png) no-repeat;
   background-size: 100% 100%;
+}
+
+@media (max-width: 900px) {
+  body {
+    background-size: 80% auto;
+    width: 75%;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    background-size: 90% auto;
+    width: 85%;
+  }
 }

@@ -73,7 +73,12 @@
     body {
       font-size: 150%;
     }
+  }
   
+  @media (max-width: 500px) {
+  body {
+      font-size: 100%;
+    }
     .ImageLeft {
       max-width: 100%;
     }
@@ -82,10 +87,3 @@
       max-width: 100%;
     }
   }
-  
-  @media (max-width: 500px) {
-  body {
-      font-size: 100%;
-    }
-  }
-  
