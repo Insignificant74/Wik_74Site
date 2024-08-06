@@ -41,10 +41,6 @@ td {
   padding: 2%;
 }
 
-table {
-  padding: 60px 0;
-}
-
 nav h1,
 nav h2,
 nav h3,
@@ -60,11 +56,11 @@ nav ul {
   right: -10.45%;
   width: 12%;
   font-size: 0.6em;
-  padding: 30px 0 30px 0;
+  padding: 0;
 }
 
 #Index.is-active {
-  right: 0;
+  right: -1%;
 }
 
 #Index a {
@@ -95,59 +91,62 @@ div h6 {
 }
 
 .Comment {
-  padding: 10px 10px 10px 10px;
+  padding: 2% 6%;
   color: ffffdb;
   font: 0.4em "Public Pixel", sans-serif;
   text-align: justify;
+}
+
+.ImageRight {
+  float: right;
+  padding-left: 3%;
+  max-height: 100%;
+  max-width: 50%;
+}
+
+.ImageLeft {
+  float: left;
+  padding-right: 3%;
+  max-height: 100%;
+  max-width: 50%;
 }
 
 .TextBox {
   color: black;
   font: 0.75em "Postal", sans-serif;
   text-align: justify;
+  width: 80%;
 }
 
 .TextRight {
-  margin: 0 20px 0 60px;
+  margin: 0 1% 0 6%;
 }
 
 .TextLeft {
-  margin: 0 60px 0 20px;
-}
-
-.ImageRight {
-  float: right;
-  padding-left: 30px;
-  width: 50%;
-}
-
-.ImageLeft {
-  float: left;
-  padding-right: 30px;
-  width: 50%;
+  margin: 0 6% 0 1%;
 }
 
 .Background1 {
-  padding: 40px 6%;
-  background: url(DIV_background_1.png) no-repeat;
+  padding: 0 6%;
+  background: url(Paper_Middle_1.png) no-repeat;
   background-size: 100% 100%;
 }
 
 .Background2 {
-  padding: 25px 6%;
-  background: url(DIV_background_2.png) no-repeat;
+  padding: 0 6%;
+  background: url(Paper_Middle_2.png) no-repeat;
   background-size: 100% 100%;
 }
 
 .Background3 {
-  padding: 25px 6%;
-  background: url(DIV_background_3.png) no-repeat;
+  padding: 0 6%;
+  background: url(Paper_Middle_3.png) no-repeat;
   background-size: 100% 100%;
 }
 
 .Background4 {
-  padding: 25px 6%;
-  background: url(DIV_background_4.png) no-repeat;
+  padding: 0 6%;
+  background: url(Paper_Middle_4.png) no-repeat;
   background-size: 100% 100%;
 }
 
@@ -156,75 +155,17 @@ div h6 {
     font-size: 150%;
   }
 
-  table {
-    padding: 140px 0;
-  }
-
-  th,
-  td {
-    padding: 12px;
-  }
-
   .ImageLeft {
-    width: 100%;
+    max-width: 100%;
   }
 
   .ImageRight {
-    width: 100%;
-  }
-
-  .Background1 {
-    padding: 60px 6%;
-  }
-
-  .Background2 {
-    padding: 40px 6%;
-  }
-
-  .Background3 {
-    padding: 40px 6%;
-  }
-
-  .Background4 {
-    padding: 40px 6%;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 500px) {
-  table {
-    padding: 140px 0;
-  }
-
-  th,
-  td {
-    padding: 3px;
-  }
-
-  .ImageLeft {
-    width: 100%;
-  }
-
-  .ImageRight {
-    width: 100%;
-  }
-
-  body {
+body {
     font-size: 100%;
-  }
-
-  .Background1 {
-    padding: 60px 6%;
-  }
-
-  .Background2 {
-    padding: 40px 6%;
-  }
-
-  .Background3 {
-    padding: 40px 6%;
-  }
-
-  .Background4 {
-    padding: 40px 6%;
   }
 }
