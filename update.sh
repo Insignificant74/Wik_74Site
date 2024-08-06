@@ -1,5 +1,5 @@
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html/Wik_74Site
 git pull
-mv -f Wik_74Site/nginx.conf /etc/nginx/nginx.conf
+mv -f nginx.conf /etc/nginx/nginx.conf
 nginx -s reload
 nginx -g 'daemon off;'
