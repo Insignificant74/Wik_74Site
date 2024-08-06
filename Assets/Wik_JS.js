@@ -1,13 +1,22 @@
 window.onload = function () {
 	const Index = document.querySelector('#Index');
+	var w = window.innerWidth;
 
-	Index.addEventListener('mouseover', function () {
-		Index.classList.add('is-active');
-	});
+	if (w > 900){
+		Index.addEventListener('mouseover', function () {
+			Index.classList.add('is-active');
+		});
+	
+		Index.addEventListener('mouseout', function () {
+			Index.classList.remove('is-active');
+		});
+	}
+	else{
+		Index.addEventListener('click', function () {
+			Index.classList.toggle('is-active');
+		});
+	}
 
-	Index.addEventListener('mouseout', function () {
-		Index.classList.remove('is-active');
-	});
 
 	window.addEventListener('resize', function(event) {
 
