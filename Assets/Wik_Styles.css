@@ -61,7 +61,7 @@ div div a:hover {
 }
 
 .Comment {
-  color: ffffdb;
+  color: yellow;
   font: 0.4em "Public Pixel", sans-serif;
 }
 
@@ -74,6 +74,12 @@ div div a:hover {
   padding: 0 6%;
   background: url(Paper_Middle_1.png) no-repeat;
   background-size: 100% 100%;
+}
+
+.Border{
+  object-fit: contain;
+  max-width: 92%;
+  display: block;
 }
 
 .Background2 {
