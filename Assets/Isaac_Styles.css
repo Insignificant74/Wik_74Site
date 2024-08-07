@@ -1,18 +1,101 @@
-@font-face{
-  font-family: 'StickyPops';
+@font-face {
+  font-family: "StickyPops";
   src: url("StickyPops.otf");
 }
 
-@font-face{
-  font-family: 'Cyberthrone';
+@font-face {
+  font-family: "Cyberthrone";
   src: url("Cyberthrone.ttf");
 }
 
+@font-face {
+  font-family: "W95FA";
+  src: url("W95FA.otf");
+}
+
 body {
-  background: url(Isaac_Background.jpg) top repeat-y  dimgray;
+  background: url(Isaac_Background.jpg) top repeat-y dimgray;
   background-size: 100% auto;
   width: 100%;
   color: #d30eff;
   font: "Cyberthrone", sans-serif;
   text-shadow: 2px 2px 5px #d30eff;
+  padding: 0;
+}
+
+#Taskbar {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: bottom;
+  box-shadow: inset 0 1px #ffffff;
+  background-color: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  padding: 2px 0;
+  height: 28px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  margin: 0;
+  font: "W95FA", sans-serif;
+  display: inline-block;
+}
+
+#Taskbar button {  
+  display: flex !important;  
+  flex: 1 1 auto;
+  flex-wrap: nowrap !important;
+  margin-right: 4px !important;  
+  outline: none !important;
+  text-decoration: none !important;
+  max-width: 150px;
+  width: auto;
+  overflow: clip;
+  display: flex;
+  align-items: center;
+  font-family: 'W95FA';
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-width: 1px;
+  font-weight: 700;
+  padding-left: 2px;
+  padding-right: 0;
+  padding-top: 4px;
+  padding-top: 4px;
+  box-sizing: border-box;
+  color: #000000;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: inset -1px 0 gray, inset -1px 1px #dfdfdf, inset -1px -1px gray,
+    inset 0 0 0 1px #dfdfdf;
+}
+
+#Taskbar button.active {
+  border-bottom-color: #ffffff;
+  border-right-color: #ffffff;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  box-shadow: inset -1px 0 #dfdfdf, inset -1px 1px gray, inset -1px -1px #dfdfdf,
+    inset 0 0 0 1px gray;
+}
+
+#Taskbar img {
+  height: 20px;
+  object-fit: contain;
+}
+
+#Taskbar #Start {
+  flex: none;
+  width: 52px;
+  margin-left: 2px !important;
+  margin-right: 6px !important;
+}
+
+#Taskbar #Start.active {
+  border: dotted, #000000;
 }
