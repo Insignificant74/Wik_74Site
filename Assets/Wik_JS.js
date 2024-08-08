@@ -3,7 +3,7 @@ window.onload = function () {
 	resizeImages.call();
 }
 function setToggleIndex(){
-	const Index = document.querySelector('#Index');
+	const Index = document.getElementById('#Index');
 	if (window.innerWidth > 900){
 		Index.addEventListener('mouseover', function () {
 			Index.classList.add('is-active');
