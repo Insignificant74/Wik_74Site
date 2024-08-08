@@ -18,9 +18,34 @@ body {
   background-size: 100% auto;
   width: 100%;
   color: #d30eff;
-  font: "Cyberthrone", sans-serif;
+  font-family: "StickyPops";
   text-shadow: 2px 2px 5px #d30eff;
   padding: 0;
+}
+
+a {
+  color: #e77aff;
+}
+
+a:hover {
+  color: orange;
+}
+
+div div a {
+  color: red;
+}
+
+div div a:hover {
+  color: blue;
+}
+
+.Comment {
+}
+
+.Textbox{
+  color: purple;
+  font: 0.75em "Cyberthrone", sans-serif;
+  background-color: #ffffff;
 }
 
 #Taskbar {
@@ -51,7 +76,7 @@ body {
   text-decoration: none !important;
   flex-wrap: nowrap !important;
   flex: 1 1 auto;
-  font-family: "W95FA";
+  font-family: "W95FA"; 
   max-width: 150px;
   width: auto;
   overflow: clip;
@@ -66,7 +91,7 @@ body {
   padding-left: 2px;
   padding-right: 0;
   padding-top: 4px;
-  padding-top: 4px;
+  padding-bottom: 4px;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
@@ -85,14 +110,15 @@ body {
     inset 0 0 0 1px gray;
 }
 
-#Taskbar img {
+#Taskbar button img {
   height: 20px;
   object-fit: contain;
+  padding-right: 2px;
 }
 
 #Taskbar #Start {
   flex: none;
-  width: 56px;
+  width: 58px;
   margin-left: 2px !important;
   margin-right: 6px !important;
 }
