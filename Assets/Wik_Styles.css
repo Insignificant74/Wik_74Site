@@ -75,9 +75,18 @@ div div a:hover {
 }
 
 .Background1 {
-  padding: 0 6%;
   background: url(Paper_Middle_1.png) no-repeat;
-  background-size: 100% 100%;
+}
+.Background2 {
+  background: url(Paper_Middle_2.png) no-repeat;
+}
+
+.Background3 {
+  background: url(Paper_Middle_3.png) no-repeat;
+}
+
+.Background4 {
+  background: url(Paper_Middle_4.png) no-repeat;
 }
 
 .Border {
@@ -86,22 +95,12 @@ div div a:hover {
   display: block;
 }
 
-.Background2 {
-  padding: 0 6%;
-  background: url(Paper_Middle_2.png) no-repeat;
-  background-size: 100% 100%;
+.TextRight {
+  margin: 0 1% 0 6%;
 }
 
-.Background3 {
-  padding: 0 6%;
-  background: url(Paper_Middle_3.png) no-repeat;
-  background-size: 100% 100%;
-}
-
-.Background4 {
-  padding: 0 6%;
-  background: url(Paper_Middle_4.png) no-repeat;
-  background-size: 100% 100%;
+.TextLeft {
+  margin: 0 6% 0 1%;
 }
 
 @media (max-width: 900px) {

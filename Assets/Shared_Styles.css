@@ -34,6 +34,7 @@
   }
   
   .Header {
+    position: static;
     text-align: center;
   }
   
@@ -59,14 +60,8 @@
   .TextBox {
     text-align: justify;
     width: 80%;
-  }
-  
-  .TextRight {
-    margin: 0 1% 0 6%;
-  }
-  
-  .TextLeft {
-    margin: 0 6% 0 1%;
+    background-size: 100% 100%;
+    padding: 0 6%;
   }
   
   @media (max-width: 900px) {

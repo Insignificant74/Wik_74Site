@@ -14,13 +14,12 @@
 }
 
 body {
-  background: url(Isaac_Background.jpg) top repeat-y dimgray;
-  background-size: 100% auto;
-  width: 100%;
-  color: #d30eff;
-  font-family: "StickyPops";
+  color: #00FEFC;
+  font-family: "Cyberthrone";
   text-shadow: 2px 2px 5px #d30eff;
+  background: none;
   padding: 0;
+  margin: 0;
 }
 
 a {
@@ -40,12 +39,32 @@ div div a:hover {
 }
 
 .Comment {
+  font: 0.8em "StickyPops", sans-serif;
 }
 
 .Textbox{
-  color: purple;
+  background-color: white;
+  text-shadow: none;
+  color: black;
   font: 0.75em "Cyberthrone", sans-serif;
-  background-color: #ffffff;
+  padding: 1%;
+}
+
+.TextRight {
+  margin: 0 10% 2% 30%;
+}
+
+.TextLeft {
+  margin: 0 30% 2% 10%;
+}
+
+#Background {
+  margin: 0;
+  object-fit: contain;
+  width: 100%;
+  position:fixed;
+  z-index: -1;
+  display: block;
 }
 
 #Taskbar {
@@ -60,11 +79,10 @@ div div a:hover {
   font-size: 16px;
   padding: 2px 0;
   height: 28px;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 5;
   margin: 0;
   display: inline-block;
 }
