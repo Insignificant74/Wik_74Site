@@ -91,7 +91,7 @@ div div a:hover {
 
 .Border {
   object-fit: contain;
-  max-width: 92%;
+  max-width: 100%;
   display: block;
 }
 
