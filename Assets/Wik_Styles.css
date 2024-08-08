@@ -8,6 +8,11 @@
   src: url("Postal.ttf");
 }
 
+@font-face {
+  font-family: "Smash";
+  src: url("Smash.ttf");
+}
+
 body {
   margin: auto;
   background: url(Wik_Background.jpg) top repeat-y scroll dimgray;
@@ -32,6 +37,11 @@ div div a {
 
 div div a:hover {
   color: blue;
+}
+
+#MainHeader{
+  font-family: Smash;
+  color: #e02b20;
 }
 
 #MainContainer {
