@@ -38,24 +38,43 @@ div div a:hover {
   color: blue;
 }
 
+.ImageRight {
+  right: 2.5%;
+}
+
+.ImageLeft {
+  left: 2.5%;
+}
+
 .Comment {
   font: 0.8em "StickyPops", sans-serif;
 }
 
 .Textbox{
+  display: inline-block;
+  vertical-align: middle;
   background-color: white;
   text-shadow: none;
   color: black;
   font: 0.75em "Cyberthrone", sans-serif;
-  padding: 1%;
+  padding: 2%;
 }
 
 .TextRight {
-  margin: 0 10% 2% 30%;
+  margin: 0 10% 2% 0;
+  width: 60%;
 }
 
 .TextLeft {
-  margin: 0 30% 2% 10%;
+  margin: 0 0 2% 10%;
+  width: 60%;
+}
+
+.BlockImages{
+  display: inline-block;
+  vertical-align: middle;
+  width: 24%;
+  position: relative;
 }
 
 #Background {
@@ -90,10 +109,10 @@ div div a:hover {
 #Taskbar button {  
   display: flex !important;  
   margin-right: 4px !important;  
-  outline: none !important;
-  text-decoration: none !important;
   flex-wrap: nowrap !important;
   flex: 1 1 auto;
+  outline: none !important;
+  text-decoration: none !important;
   font-family: "W95FA"; 
   max-width: 150px;
   width: auto;
