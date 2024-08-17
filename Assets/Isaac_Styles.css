@@ -13,6 +13,11 @@
   src: url("W95FA.otf");
 }
 
+@font-face {
+  font-family: "MS_Sans_Serif";
+  src: url("MS_Sans_Serif.ttf");
+}
+
 body {
   color: #00FEFC;
   font-family: "Cyberthrone";
@@ -121,6 +126,18 @@ div div a:hover {
   margin: 0;
   box-shadow: inset -1px 0 gray, inset -1px 1px #dfdfdf, inset -1px -1px gray,
     inset 0 0 0 1px #dfdfdf;
+}
+
+#StartBanner {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  font-family: "MS_Sans_Serif";
+  background-color: #808080;
+  color: #ffffff;
+}
+
+#StartBanner b {
+  color: #c0c0c0;
 }
 
 #StartMenu.is-active {
