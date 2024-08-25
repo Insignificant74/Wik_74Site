@@ -81,11 +81,17 @@ div div a:hover {
   width: 60%;
 }
 
-.BlockImages {
+.BlockImages {  
   display: inline-block;
   vertical-align: middle;
   width: 24%;
   position: relative;
+}
+
+.RightArrow {
+  width: 100%;
+  text-align: right;
+  margin-right: 3px;
 }
 
 #Background {
