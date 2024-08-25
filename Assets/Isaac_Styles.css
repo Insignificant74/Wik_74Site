@@ -19,12 +19,18 @@
 }
 
 body {
-  color: #00FEFC;
+  color: #00fefc;
   font-family: "Cyberthrone";
   text-shadow: 2px 2px 5px #d30eff;
   background: none;
   padding: 0;
   margin: 0;
+}
+
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 a {
@@ -55,7 +61,7 @@ div div a:hover {
   font: 0.8em "StickyPops", sans-serif;
 }
 
-.Textbox{
+.Textbox {
   display: inline-block;
   vertical-align: middle;
   background-color: white;
@@ -75,7 +81,7 @@ div div a:hover {
   width: 60%;
 }
 
-.BlockImages{
+.BlockImages {
   display: inline-block;
   vertical-align: middle;
   width: 24%;
@@ -86,7 +92,7 @@ div div a:hover {
   margin: 0;
   object-fit: contain;
   width: 100%;
-  position:fixed;
+  position: fixed;
   z-index: -1;
   display: block;
 }
@@ -109,17 +115,20 @@ div div a:hover {
 }
 
 #StartMenu {
+  display: flex;
+  flex-wrap: nowrap !important;
   position: fixed;
   outline: none !important;
   text-decoration: none !important;
-  font-family: "W95FA"; 
-  border-width: 1px;border-style: solid;
+  font-family: "W95FA";
+  border-width: 1px;
+  border-style: solid;
   border-bottom-color: #000000;
   border-right-color: #000000;
   border-top-color: #ffffff;
   border-left-color: #ffffff;
   background-color: #c0c0c0;
-  font-weight: 700;
+  text-shadow: none;
   width: 182px;
   left: -190px;
   bottom: 30px;
@@ -128,12 +137,49 @@ div div a:hover {
     inset 0 0 0 1px #dfdfdf;
 }
 
+#StartMenu .Internal{
+  width: 100%;
+  font-size: 0;
+}
+
+#StartMenu button{
+  display: flex;
+  vertical-align: middle;  
+  align-items: center;
+  flex: none;
+  text-align: left;
+  width: 100%;
+  color: #000000;
+  height: 36px;
+  font-size: 12px;
+  border: none;
+  background: none;
+}
+
+#StartMenu button.is-active{
+  color: #ffffff;
+  background-color: #0000a8;
+}
+
+#StartMenu hr{
+  width: 100%;
+  margin: 2px 0;
+  height: 1px;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-top: 1px solid #808080;
+  background-color: #ffffff;
+}
+
 #StartBanner {
   writing-mode: vertical-lr;
   transform: rotate(180deg);
+  font-size: 20px;
   font-family: "MS_Sans_Serif";
   background-color: #808080;
   color: #ffffff;
+  padding-top: 4%;
 }
 
 #StartBanner b {
@@ -144,19 +190,19 @@ div div a:hover {
   left: 2.5px;
 }
 
-#TaskbarInternal {
+#Taskbar .Internal {
   display: flex;
   flex-wrap: nowrap !important;
 }
 
-#Taskbar button {  
-  display: flex !important;  
-  margin-right: 4px !important;  
+#Taskbar button {
+  display: flex !important;
+  margin-right: 4px !important;
   flex-wrap: nowrap !important;
   flex: 1 1 auto;
   outline: none !important;
   text-decoration: none !important;
-  font-family: "W95FA"; 
+  font-family: "W95FA";
   max-width: 150px;
   width: auto;
   overflow: clip;
@@ -212,7 +258,7 @@ div div a:hover {
   */
 }
 
-#Taskbar #Time {    
+#Taskbar #Time {
   flex: 0 0 60px;
   border-width: 1px;
   border-style: solid;
