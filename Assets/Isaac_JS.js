@@ -1,4 +1,5 @@
 window.onload = function () {
+  const MainContainer = document.getElementById("MainContainer");
   const StartButton = document.getElementById("StartButton");
   const StartMenu = document.getElementById("StartMenu");
   const Programs = document.getElementById("Menu_Programs");
@@ -8,6 +9,18 @@ window.onload = function () {
   const Help = document.getElementById("Menu_Help");
   const Run = document.getElementById("Menu_Run");
   const Shut_Down = document.getElementById("Menu_Shut_Down");
+
+  MainContainer.addEventListener("click", function () {
+    StartButton.classList.remove("is-active");
+    StartMenu.classList.remove("is-active");
+    Programs.classList.remove("is-active");
+    Documents.classList.remove("is-active");
+    Settings.classList.remove("is-active");
+    Find.classList.remove("is-active");
+    Help.classList.remove("is-active");
+    Run.classList.remove("is-active");
+    Shut_Down.classList.remove("is-active");
+  });
 
   StartButton.addEventListener("click", function () {
     StartButton.classList.toggle("is-active");
