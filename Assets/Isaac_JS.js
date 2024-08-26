@@ -4,14 +4,6 @@ window.onload = function () {
   const StartMenu = document.getElementById("StartMenu");
   const StartMenuButtons = [].slice.call(StartMenu.querySelector(".Internal").getElementsByTagName("button"));
 
-  const Programs = StartMenu.querySelector("#Menu_Programs");
-  const Documents = StartMenu.querySelector("#Menu_Documents");
-  const Settings = StartMenu.querySelector("#Menu_Settings");
-  const Find = StartMenu.querySelector("#Menu_Find");
-  const Help = StartMenu.querySelector("#Menu_Help");
-  const Run = StartMenu.querySelector("#Menu_Run");
-  const Shut_Down = StartMenu.querySelector("#Menu_Shut_Down");
-
   MainContainer.addEventListener("click", function () {
     // deactivate buttons
     StartMenuButtons.forEach(button => {
