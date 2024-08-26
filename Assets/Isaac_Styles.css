@@ -94,6 +94,91 @@ div div a:hover {
   margin-right: 3px;
 }
 
+.Window {
+  display: grid;
+  grid-template-columns: 4px auto 4px;
+  grid-template-rows: 4px auto 4px;
+  position: fixed;
+  outline: none !important;
+  text-decoration: none !important;
+  font-family: "W95FA";
+  text-shadow: none;
+  width: auto;
+  height: auto;
+  left: 400px;
+  right: 400px;
+  top: 200px;
+  bottom: 200px;
+  box-shadow: inset -1px 0 gray, inset -1px 1px #dfdfdf, inset -1px -1px gray,
+    inset 0 0 0 1px #dfdfdf;
+}
+
+.Window_TopLeftBorder{
+  height: 4px;
+  width: 4px;
+  background-color: yellow;
+  cursor: nw-resize;
+}
+
+.Window_TopBorder{
+  height: 4px;
+  width: auto;
+  background-color: yellow;
+  cursor: ns-resize;
+}
+
+.Window_TopRightBorder{
+  height: 4px;
+  width: 4px;
+  background-color: yellow;
+  cursor: ne-resize;
+}
+
+.Window_LeftBorder{
+  width: 4px;
+  height: auto;
+  background-color: yellow;
+  cursor: ew-resize;
+}
+
+.Window_Internal{
+  width: auto;
+  height: auto;
+  background-color: red;
+}
+
+.Window_RightBorder{
+  width: 4px;
+  height: auto;
+  background-color: yellow;
+  cursor: ew-resize;
+}
+
+.Window_BottomLeftBorder{
+  height: 4px;
+  width: 4px;
+  background-color: yellow;
+  cursor: sw-resize;
+}
+
+.Window_BottomBorder{
+  height: 4px;
+  width: auto;
+  background-color: yellow;
+  cursor: ns-resize;
+}
+
+.Window_BottomRightBorder{
+  height: 4px;
+  width: 4px;
+  background-color: yellow;
+  cursor: se-resize;
+}
+
+.TitleBar{
+  background-color: #0000a8;
+}
+
 #Background {
   margin: 0;
   object-fit: contain;
@@ -122,11 +207,7 @@ div div a:hover {
 
 #StartMenu {
   display: flex;
-  flex-wrap: nowrap !important;
   position: fixed;
-  outline: none !important;
-  text-decoration: none !important;
-  font-family: "W95FA";
   border-width: 1px;
   border-style: solid;
   border-bottom-color: #000000;
@@ -134,13 +215,10 @@ div div a:hover {
   border-top-color: #ffffff;
   border-left-color: #ffffff;
   background-color: #c0c0c0;
-  text-shadow: none;
   width: 182px;
   left: -190px;
   bottom: 30px;
   margin: 0;
-  box-shadow: inset -1px 0 gray, inset -1px 1px #dfdfdf, inset -1px -1px gray,
-    inset 0 0 0 1px #dfdfdf;
 }
 
 #StartMenu .Internal{

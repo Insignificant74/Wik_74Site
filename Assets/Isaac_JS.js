@@ -2,94 +2,51 @@ window.onload = function () {
   const MainContainer = document.getElementById("MainContainer");
   const StartButton = document.getElementById("StartButton");
   const StartMenu = document.getElementById("StartMenu");
-  const Programs = document.getElementById("Menu_Programs");
-  const Documents = document.getElementById("Menu_Documents");
-  const Settings = document.getElementById("Menu_Settings");
-  const Find = document.getElementById("Menu_Find");
-  const Help = document.getElementById("Menu_Help");
-  const Run = document.getElementById("Menu_Run");
-  const Shut_Down = document.getElementById("Menu_Shut_Down");
+  const StartMenuButtons = [].slice.call(StartMenu.querySelector(".Internal").getElementsByTagName("button"));
+
+  const Programs = StartMenu.querySelector("#Menu_Programs");
+  const Documents = StartMenu.querySelector("#Menu_Documents");
+  const Settings = StartMenu.querySelector("#Menu_Settings");
+  const Find = StartMenu.querySelector("#Menu_Find");
+  const Help = StartMenu.querySelector("#Menu_Help");
+  const Run = StartMenu.querySelector("#Menu_Run");
+  const Shut_Down = StartMenu.querySelector("#Menu_Shut_Down");
 
   MainContainer.addEventListener("click", function () {
-    StartButton.classList.remove("is-active");
+    // deactivate buttons
+    StartMenuButtons.forEach(button => {
+      button.classList.remove("is-active");
+    });
+    // deactivate self
     StartMenu.classList.remove("is-active");
-    Programs.classList.remove("is-active");
-    Documents.classList.remove("is-active");
-    Settings.classList.remove("is-active");
-    Find.classList.remove("is-active");
-    Help.classList.remove("is-active");
-    Run.classList.remove("is-active");
-    Shut_Down.classList.remove("is-active");
+    StartButton.classList.remove("is-active");
+    // deactivate children
+    //...
   });
 
+  StartMenuButtons.forEach(button => {
+    button.addEventListener("mouseover", function () {
+      moveSelection(StartMenuButtons, button);
+    });
+  });
+  
   StartButton.addEventListener("click", function () {
     StartButton.classList.toggle("is-active");
     StartMenu.classList.toggle("is-active");
   });
-  Programs.addEventListener("mouseover", function () {
-    Programs.classList.add("is-active");
-    Documents.classList.remove("is-active");
-    Settings.classList.remove("is-active");
-    Find.classList.remove("is-active");
-    Help.classList.remove("is-active");
-    Run.classList.remove("is-active");
-    Shut_Down.classList.remove("is-active");
-  });
-  Documents.addEventListener("mouseover", function () {
-    Programs.classList.remove("is-active");
-    Documents.classList.add("is-active");
-    Settings.classList.remove("is-active");
-    Find.classList.remove("is-active");
-    Help.classList.remove("is-active");
-    Run.classList.remove("is-active");
-    Shut_Down.classList.remove("is-active");
-  });
-  Settings.addEventListener("mouseover", function () {
-    Programs.classList.remove("is-active");
-    Documents.classList.remove("is-active");    
-    Settings.classList.add("is-active");
-    Find.classList.remove("is-active");
-    Help.classList.remove("is-active");
-    Run.classList.remove("is-active");
-    Shut_Down.classList.remove("is-active");
-  });
-  Find.addEventListener("mouseover", function () {
-    Programs.classList.remove("is-active");
-    Documents.classList.remove("is-active");
-    Settings.classList.remove("is-active");
-    Find.classList.add("is-active");
-    Help.classList.remove("is-active");
-    Run.classList.remove("is-active");
-    Shut_Down.classList.remove("is-active");
-  });
-  Help.addEventListener("mouseover", function () {
-    Programs.classList.remove("is-active");
-    Documents.classList.remove("is-active");
-    Settings.classList.remove("is-active");
-    Find.classList.remove("is-active");
-    Help.classList.add("is-active");
-    Run.classList.remove("is-active");
-    Shut_Down.classList.remove("is-active");
-  });
-  Run.addEventListener("mouseover", function () {
-    Programs.classList.remove("is-active");
-    Documents.classList.remove("is-active");
-    Settings.classList.remove("is-active");
-    Find.classList.remove("is-active");
-    Help.classList.remove("is-active");
-    Run.classList.add("is-active");
-    Shut_Down.classList.remove("is-active");
-  });
-  Shut_Down.addEventListener("mouseover", function () {
-    Programs.classList.remove("is-active");
-    Documents.classList.remove("is-active");
-    Settings.classList.remove("is-active");
-    Find.classList.remove("is-active");
-    Help.classList.remove("is-active");
-    Run.classList.remove("is-active");
-    Shut_Down.classList.add("is-active");
-  });
+
   Clock.call();
+};
+
+function moveSelection(MenuButtons, targetButton){
+  MenuButtons.forEach(button => {
+    if (button != targetButton){
+      button.classList.remove("is-active");
+    }
+    else{
+      button.classList.add("is-active");
+    }
+  });
 };
 
 function Clock() {
