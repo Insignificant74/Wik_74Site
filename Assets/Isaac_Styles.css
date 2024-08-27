@@ -95,6 +95,7 @@ div div a:hover {
 }
 
 .Window {
+  color: #ffffff;
   display: grid;
   grid-template-columns: 4px auto 4px;
   grid-template-rows: 4px auto 4px;
@@ -116,11 +117,11 @@ div div a:hover {
   width: 4px;
   cursor: nw-resize;
   background-color: #c0c0c0;
-  border-left: 1px solid #c0c0c0;
+  border-left: 2px solid #c0c0c0;
   border-right: none;
-  border-top: 1px solid #c0c0c0;
+  border-top: 2px solid #c0c0c0;
   border-bottom: none;
-  box-shadow: inset 1px 1px #fff;
+  box-shadow: inset 2px 2px #fff;
 }
 
 .Window_TopBorder {
@@ -130,9 +131,9 @@ div div a:hover {
   background-color: #c0c0c0;
   border-left: none;
   border-right: none;
-  border-top: 1px solid #c0c0c0;
+  border-top: 2px solid #c0c0c0;
   border-bottom: none;
-  box-shadow: inset 0px 1px #fff;
+  box-shadow: inset 0px 2px #fff;
 }
 
 .Window_TopRightBorder {
@@ -141,10 +142,10 @@ div div a:hover {
   cursor: ne-resize;
   background-color: #c0c0c0;
   border-left: none;
-  border-right: 1px solid #000000;
-  border-top: 1px solid #c0c0c0;
+  border-right: 2px solid #000000;
+  border-top: 2px solid #c0c0c0;
   border-bottom: none;
-  box-shadow: inset 0px 1px #fff, inset -1px 0px gray;
+  box-shadow: inset 0px 2px #fff, inset -2px 0px gray;
 }
 
 .Window_LeftBorder {
@@ -152,17 +153,17 @@ div div a:hover {
   height: auto;
   cursor: ew-resize;
   background-color: #c0c0c0;
-  border-left: 1px solid #c0c0c0;
+  border-left: 2px solid #c0c0c0;
   border-right: none;
   border-top: none;
   border-bottom: none;
-  box-shadow: inset 1px 0px #fff;
+  box-shadow: inset 2px 0px #fff;
 }
 
 .Window_Internal {
   width: auto;
   height: auto;
-  background-color: red;
+  background-color: #c0c0c0;
 }
 
 .Window_RightBorder {
@@ -171,9 +172,9 @@ div div a:hover {
   cursor: ew-resize;
   background-color: #c0c0c0;
   border-left: none;
-  border-right: 1px solid #000000;
+  border-right: 2px solid #000000;
   border-top: none;
-  box-shadow: inset -1px 0px gray;
+  box-shadow: inset -2px 0px gray;
 }
 
 .Window_BottomLeftBorder {
@@ -181,11 +182,11 @@ div div a:hover {
   width: 3px;
   cursor: sw-resize;
   background-color: #c0c0c0;
-  border-left: 1px solid #c0c0c0;
+  border-left: 2px solid #c0c0c0;
   border-right: none;
   border-top: none;
-  border-bottom: 1px solid #000000;
-  box-shadow: inset 1px 0px #fff,  inset 0px -1px gray;
+  border-bottom: 2px solid #000000;
+  box-shadow: inset 2px 0px #fff,  inset 0px -2px gray;
 }
 
 .Window_BottomBorder {
@@ -196,8 +197,8 @@ div div a:hover {
   border-left: none;
   border-right: none;
   border-top: none;
-  border-bottom: 1px solid #000000;
-  box-shadow: inset 0px -1px gray;
+  border-bottom: 2px solid #000000;
+  box-shadow: inset 0px -2px gray;
 }
 
 .Window_BottomRightBorder {
@@ -206,14 +207,55 @@ div div a:hover {
   cursor: se-resize;
   background-color: #c0c0c0;
   border-left: none;
-  border-right: 1px solid #000000;
+  border-right: 2px solid #000000;
   border-top: none;
-  border-bottom: 1px solid #000000;
-  box-shadow: inset -1px -1px gray;
+  border-bottom: 2px solid #000000;
+  box-shadow: inset -2px -2px gray;
 }
 
 .TitleBar {
+  background-color: gray;
+  align-items: center;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  outline: none !important;
+  text-decoration: none !important;
+  overflow: clip;
+}
+
+.TitleBar .is-active{
   background-color: #0000a8;
+}
+
+.TitleBar button{
+  align-items: center;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  font-size: 19px;
+  border-width: 2px;
+  border-style: solid;
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  background-color: #c0c0c0;
+  font-weight: 700;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset -2px 0 gray, inset -2px 2px #dfdfdf, inset -2px -2px gray,
+    inset 0 0 0 2px #dfdfdf;
+}
+
+.TitleBar_Buttons{
+  margin-left: auto;
+  display: flex;
+}
+
+.TitleBar_Close{
+  margin-left: 3px;
 }
 
 #Background {
@@ -226,7 +268,7 @@ div div a:hover {
 }
 
 #Taskbar {
-  box-shadow: inset 0 1px #ffffff;
+  box-shadow: inset 0 2px #ffffff;
   background-color: #c0c0c0;
   border-top: 2px solid #ffffff;
   color: #000000;
@@ -245,7 +287,7 @@ div div a:hover {
 #StartMenu {
   display: flex;
   position: fixed;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
   border-bottom-color: #000000;
   border-right-color: #000000;
@@ -330,7 +372,7 @@ div div a:hover {
   overflow: clip;
   display: flex;
   align-items: center;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
   border-bottom-color: #000000;
   border-right-color: #000000;
@@ -347,8 +389,8 @@ div div a:hover {
   position: relative;
   text-align: left;
   cursor: pointer;
-  box-shadow: inset -1px 0 gray, inset -1px 1px #dfdfdf, inset -1px -1px gray,
-    inset 0 0 0 1px #dfdfdf;
+  box-shadow: inset -2px 0 gray, inset -2px 2px #dfdfdf, inset -2px -2px gray,
+    inset 0 0 0 2px #dfdfdf;
 }
 
 #Taskbar button.is-active {
@@ -356,8 +398,8 @@ div div a:hover {
   border-right-color: #ffffff;
   border-top-color: #000000;
   border-left-color: #000000;
-  box-shadow: inset -1px 0 #dfdfdf, inset -1px 1px gray, inset -1px -1px #dfdfdf,
-    inset 0 0 0 1px gray;
+  box-shadow: inset -2px 0 #dfdfdf, inset -2px 2px gray, inset -2px -2px #dfdfdf,
+    inset 0 0 0 2px gray;
 }
 
 #Taskbar button img {
@@ -382,7 +424,7 @@ div div a:hover {
 
 #Taskbar #Time {
   flex: 0 0 60px;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
   border-bottom-color: #ffffff;
   border-right-color: #ffffff;
