@@ -81,7 +81,7 @@ div div a:hover {
   width: 60%;
 }
 
-.BlockImages {  
+.BlockImages {
   display: inline-block;
   vertical-align: middle;
   width: 24%;
@@ -109,73 +109,110 @@ div div a:hover {
   right: 400px;
   top: 200px;
   bottom: 200px;
-  box-shadow: inset -1px 0 gray, inset -1px 1px #dfdfdf, inset -1px -1px gray,
-    inset 0 0 0 1px #dfdfdf;
 }
 
-.Window_TopLeftBorder{
+.Window_TopLeftBorder {
   height: 4px;
   width: 4px;
-  background-color: yellow;
   cursor: nw-resize;
+  background-color: #c0c0c0;
+  border-left: 1px solid #c0c0c0;
+  border-right: none;
+  border-top: 1px solid #c0c0c0;
+  border-bottom: none;
+  box-shadow: inset 1px 1px #fff;
 }
 
-.Window_TopBorder{
-  height: 4px;
+.Window_TopBorder {
+  height: 3px;
   width: auto;
-  background-color: yellow;
   cursor: ns-resize;
+  background-color: #c0c0c0;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid #c0c0c0;
+  border-bottom: none;
+  box-shadow: inset 0px 1px #fff;
 }
 
-.Window_TopRightBorder{
-  height: 4px;
-  width: 4px;
-  background-color: yellow;
+.Window_TopRightBorder {
+  height: 3px;
+  width: 3px;
   cursor: ne-resize;
+  background-color: #c0c0c0;
+  border-left: none;
+  border-right: 1px solid #000000;
+  border-top: 1px solid #c0c0c0;
+  border-bottom: none;
+  box-shadow: inset 0px 1px #fff, inset -1px 0px gray;
 }
 
-.Window_LeftBorder{
-  width: 4px;
+.Window_LeftBorder {
+  width: 3px;
   height: auto;
-  background-color: yellow;
   cursor: ew-resize;
+  background-color: #c0c0c0;
+  border-left: 1px solid #c0c0c0;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: inset 1px 0px #fff;
 }
 
-.Window_Internal{
+.Window_Internal {
   width: auto;
   height: auto;
   background-color: red;
 }
 
-.Window_RightBorder{
-  width: 4px;
+.Window_RightBorder {
+  width: 3px;
   height: auto;
-  background-color: yellow;
   cursor: ew-resize;
+  background-color: #c0c0c0;
+  border-left: none;
+  border-right: 1px solid #000000;
+  border-top: none;
+  box-shadow: inset -1px 0px gray;
 }
 
-.Window_BottomLeftBorder{
-  height: 4px;
-  width: 4px;
-  background-color: yellow;
+.Window_BottomLeftBorder {
+  height: 3px;
+  width: 3px;
   cursor: sw-resize;
+  background-color: #c0c0c0;
+  border-left: 1px solid #c0c0c0;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #000000;
+  box-shadow: inset 1px 0px #fff,  inset 0px -1px gray;
 }
 
-.Window_BottomBorder{
-  height: 4px;
+.Window_BottomBorder {
+  height: 3px;
   width: auto;
-  background-color: yellow;
   cursor: ns-resize;
+  background-color: #c0c0c0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #000000;
+  box-shadow: inset 0px -1px gray;
 }
 
-.Window_BottomRightBorder{
-  height: 4px;
-  width: 4px;
-  background-color: yellow;
+.Window_BottomRightBorder {
+  height: 3px;
+  width: 3px;
   cursor: se-resize;
+  background-color: #c0c0c0;
+  border-left: none;
+  border-right: 1px solid #000000;
+  border-top: none;
+  border-bottom: 1px solid #000000;
+  box-shadow: inset -1px -1px gray;
 }
 
-.TitleBar{
+.TitleBar {
   background-color: #0000a8;
 }
 
@@ -215,20 +252,21 @@ div div a:hover {
   border-top-color: #ffffff;
   border-left-color: #ffffff;
   background-color: #c0c0c0;
+  text-shadow: none;
   width: 182px;
   left: -190px;
   bottom: 30px;
   margin: 0;
 }
 
-#StartMenu .Internal{
+#StartMenu .Internal {
   width: 100%;
   font-size: 0;
 }
 
-#StartMenu button{
+#StartMenu button {
   display: flex;
-  vertical-align: middle;  
+  vertical-align: middle;
   align-items: center;
   flex: none;
   text-align: left;
@@ -240,12 +278,12 @@ div div a:hover {
   background: none;
 }
 
-#StartMenu button.is-active{
+#StartMenu button.is-active {
   color: #ffffff;
   background-color: #0000a8;
 }
 
-#StartMenu hr{
+#StartMenu hr {
   width: 100%;
   margin: 2px 0;
   height: 1px;
