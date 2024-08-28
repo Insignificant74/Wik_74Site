@@ -2,11 +2,13 @@ window.onload = function () {
   const MainContainer = document.getElementById("MainContainer");
   const StartButton = document.getElementById("StartButton");
   const StartMenu = document.getElementById("StartMenu");
-  const StartMenuButtons = [].slice.call(StartMenu.querySelector(".Internal").getElementsByTagName("button"));
+  const StartMenuButtons = [].slice.call(
+    StartMenu.querySelector(".Internal").getElementsByClassName("button")
+  );
 
   MainContainer.addEventListener("click", function () {
     // deactivate buttons
-    StartMenuButtons.forEach(button => {
+    StartMenuButtons.forEach((button) => {
       button.classList.remove("is-active");
     });
     // deactivate self
@@ -16,12 +18,12 @@ window.onload = function () {
     //...
   });
 
-  StartMenuButtons.forEach(button => {
+  StartMenuButtons.forEach((button) => {
     button.addEventListener("mouseover", function () {
       moveSelection(StartMenuButtons, button);
     });
   });
-  
+
   StartButton.addEventListener("click", function () {
     StartButton.classList.toggle("is-active");
     StartMenu.classList.toggle("is-active");
@@ -30,16 +32,15 @@ window.onload = function () {
   Clock.call();
 };
 
-function moveSelection(MenuButtons, targetButton){
-  MenuButtons.forEach(button => {
-    if (button != targetButton){
+function moveSelection(MenuButtons, targetButton) {
+  MenuButtons.forEach((button) => {
+    if (button != targetButton) {
       button.classList.remove("is-active");
-    }
-    else{
+    } else {
       button.classList.add("is-active");
     }
   });
-};
+}
 
 function Clock() {
   const d = new Date();

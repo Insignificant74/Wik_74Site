@@ -227,7 +227,7 @@ div div a:hover {
   background-color: #0000a8;
 }
 
-.TitleBar button{
+.TitleBar .button{
   align-items: center;
   text-align: center;
   width: 24px;
@@ -284,8 +284,9 @@ div div a:hover {
   margin: 0;
 }
 
-#StartMenu {
-  display: flex;
+.Menu{
+  font-family: "MS_Sans_Serif";
+  display: none;
   position: fixed;
   border-width: 2px;
   border-style: solid;
@@ -295,37 +296,35 @@ div div a:hover {
   border-left-color: #ffffff;
   background-color: #c0c0c0;
   text-shadow: none;
-  width: 182px;
-  left: -190px;
-  bottom: 30px;
   margin: 0;
 }
 
-#StartMenu .Internal {
+.Menu.is-active {
+  display: flex;
+}
+
+.Menu .Internal {
   width: 100%;
   font-size: 0;
 }
 
-#StartMenu button {
+.Menu .button {
   display: flex;
-  vertical-align: middle;
   align-items: center;
-  flex: none;
   text-align: left;
   width: 100%;
   color: #000000;
-  height: 36px;
   font-size: 12px;
   border: none;
   background: none;
 }
 
-#StartMenu button.is-active {
+.Menu .button.is-active {
   color: #ffffff;
   background-color: #0000a8;
 }
 
-#StartMenu hr {
+.Menu hr {
   width: 100%;
   margin: 2px 0;
   height: 1px;
@@ -336,11 +335,25 @@ div div a:hover {
   background-color: #ffffff;
 }
 
+#StartMenu {
+  width: 182px;
+  left: 2.5px;
+  bottom: 30px;
+}
+
+#StartMenu .button {
+  height: 36px;
+}
+
+#ProgramsMenu {
+  left: 185px;
+  bottom: 144px;
+}
+
 #StartBanner {
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   font-size: 20px;
-  font-family: "MS_Sans_Serif";
   background-color: #808080;
   color: #ffffff;
   padding-top: 4%;
@@ -350,16 +363,12 @@ div div a:hover {
   color: #c0c0c0;
 }
 
-#StartMenu.is-active {
-  left: 2.5px;
-}
-
 #Taskbar .Internal {
   display: flex;
   flex-wrap: nowrap !important;
 }
 
-#Taskbar button {
+#Taskbar .button {
   display: flex !important;
   margin-right: 4px !important;
   flex-wrap: nowrap !important;
@@ -393,7 +402,7 @@ div div a:hover {
     inset 0 0 0 2px #dfdfdf;
 }
 
-#Taskbar button.is-active {
+#Taskbar .button.is-active {
   border-bottom-color: #ffffff;
   border-right-color: #ffffff;
   border-top-color: #000000;
@@ -402,7 +411,7 @@ div div a:hover {
     inset 0 0 0 2px gray;
 }
 
-#Taskbar button img {
+#Taskbar .button img {
   height: 20px;
   object-fit: contain;
   padding-right: 2px;
@@ -410,7 +419,7 @@ div div a:hover {
 
 #Taskbar #StartButton {
   flex: none;
-  width: 58px;
+  width: 64px;
   margin-left: 2px !important;
   margin-right: 6px !important;
 }

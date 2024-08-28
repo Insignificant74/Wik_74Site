@@ -120,44 +120,54 @@
     </div>
     <div id="Taskbar">
       <div class="Internal">
-        <button id="StartButton">
+        <div class="button"  id="StartButton">
           <img src="Assets/Windows_95_Logo.png" /><b>Start</b>
-        </button>
-        <button id="Taskbar_Welcome" class="is-active">Welcome</button>
+        </div>
+        <div class="button"  id="Taskbar_Welcome" class="is-active">Welcome</div>
         <div id="Time"></div>
       </div>
     </div>
     <div id="StartMenu" class="Menu">
       <div id="StartBanner"><b>Windows</b>95</div>
       <div class="Internal">
-        <button>
+        <div class="button" >
           <img src="Assets/Programs_Icon.png" /><u>P</u>rograms
           <div class="RightArrow">🞂</div>
-        </button>
+          <div id="ProgramsMenu" class="Menu is-active">
+            <div class="Internal">
+              <div class="button" ><img src="Assets/Help_Icon.png" />Accessories</div>
+              <div class="button" ><img src="Assets/Run_Icon.png" />StartUp</div>
+              <div class="button" ><img src="Assets/Run_Icon.png" />MS-DOS Prompt</div>
+              <div class="button" >
+                <img src="Assets/Run_Icon.png" />Windows Explorert
+              </div>
+            </div>
+          </div>
+        </div>
         <br />
-        <button>
+        <div class="button" >
           <img src="Assets/Documents_Icon.png" /><u>D</u>ocuments
           <div class="RightArrow">🞂</div>
-        </button>
+        </div>
         <br />
-        <button>
+        <div class="button" >
           <img src="Assets/Settings_Icon.png" /><u>S</u>ettings
           <div class="RightArrow">🞂</div>
-        </button>
+        </div>
         <br />
-        <button>
+        <div class="button" >
           <img src="Assets/Find_Icon.png" /><u>F</u>ind
           <div class="RightArrow">🞂</div>
-        </button>
+        </div>
         <br />
-        <button><img src="Assets/Help_Icon.png" /><u>H</u>elp</button>
+        <div class="button" ><img src="Assets/Help_Icon.png" /><u>H</u>elp</div>
         <br />
-        <button><img src="Assets/Run_Icon.png" /><u>R</u>un...</button>
+        <div class="button" ><img src="Assets/Run_Icon.png" /><u>R</u>un...</div>
         <br />
         <hr />
-        <button>
+        <div class="button" >
           <img src="Assets/Shut_Down_Icon.png" />Sh<u>u</u>t Down...
-        </button>
+        </div>
         <br />
       </div>
     </div>
@@ -170,9 +180,9 @@
         <div class="TitleBar">
           Welcome
           <div class="TitleBar_Buttons">
-            <button class="TitleBar_Minimise">_</button>
-            <button class="TitleBar_Maximise">|</button>
-            <button class="TitleBar_Close">X</button>
+            <div class="button"  class="TitleBar_Minimise">_</div>
+            <div class="button"  class="TitleBar_Maximise">|</div>
+            <div class="button"  class="TitleBar_Close">X</div>
           </div>
         </div>
         <div class="Internal">Hiii</div>
