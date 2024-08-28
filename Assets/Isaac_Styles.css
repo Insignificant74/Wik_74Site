@@ -121,7 +121,7 @@ div div a:hover {
   border-right: none;
   border-top: 2px solid #c0c0c0;
   border-bottom: none;
-  box-shadow: inset 2px 2px #fff;
+  box-shadow: inset 2px 2px #ffffff;
 }
 
 .Window_TopBorder {
@@ -133,7 +133,7 @@ div div a:hover {
   border-right: none;
   border-top: 2px solid #c0c0c0;
   border-bottom: none;
-  box-shadow: inset 0px 2px #fff;
+  box-shadow: inset 0px 2px #ffffff;
 }
 
 .Window_TopRightBorder {
@@ -145,7 +145,7 @@ div div a:hover {
   border-right: 2px solid #000000;
   border-top: 2px solid #c0c0c0;
   border-bottom: none;
-  box-shadow: inset 0px 2px #fff, inset -2px 0px gray;
+  box-shadow: inset 0px 2px #ffffff, inset -2px 0px gray;
 }
 
 .Window_LeftBorder {
@@ -157,7 +157,7 @@ div div a:hover {
   border-right: none;
   border-top: none;
   border-bottom: none;
-  box-shadow: inset 2px 0px #fff;
+  box-shadow: inset 2px 0px #ffffff;
 }
 
 .Window_Internal {
@@ -186,7 +186,7 @@ div div a:hover {
   border-right: none;
   border-top: none;
   border-bottom: 2px solid #000000;
-  box-shadow: inset 2px 0px #fff,  inset 0px -2px gray;
+  box-shadow: inset 2px 0px #ffffff,  inset 0px -2px gray;
 }
 
 .Window_BottomBorder {
@@ -240,6 +240,7 @@ div div a:hover {
   border-top-color: #ffffff;
   border-left-color: #ffffff;
   background-color: #c0c0c0;
+  color: #000000;
   font-weight: 700;
   box-sizing: border-box;
   overflow: hidden;
@@ -324,6 +325,10 @@ div div a:hover {
   background-color: #0000a8;
 }
 
+div .Menu img {
+  height: 26px;
+}
+
 .Menu hr {
   width: 100%;
   margin: 2px 0;
@@ -341,13 +346,18 @@ div div a:hover {
   bottom: 30px;
 }
 
-#StartMenu .button {
+#StartMenu > .Internal > .button {
   height: 36px;
 }
 
+#StartMenu > img {
+  height: 32px;
+}
+
 #ProgramsMenu {
+  width: 140px;
   left: 185px;
-  bottom: 144px;
+  bottom: 184px;
 }
 
 #StartBanner {
