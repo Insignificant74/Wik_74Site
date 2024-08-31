@@ -3,20 +3,8 @@ window.onload = function () {
   const StartButton = document.getElementById("StartButton");
   const StartMenu = document.getElementById("StartMenu");
   const StartMenuButtons = [].slice.call(
-    StartMenu.querySelector(".Internal").getElementsByClassName("button")
+    StartMenu.querySelector(".Internal").querySelectorAll(":scope > .button")
   );
-
-  MainContainer.addEventListener("click", function () {
-    // deactivate buttons
-    StartMenuButtons.forEach((button) => {
-      button.classList.remove("is-active");
-    });
-    // deactivate self
-    StartMenu.classList.remove("is-active");
-    StartButton.classList.remove("is-active");
-    // deactivate children
-    //...
-  });
 
   StartMenuButtons.forEach((button) => {
     button.addEventListener("mouseover", function () {
@@ -29,8 +17,26 @@ window.onload = function () {
     StartMenu.classList.toggle("is-active");
   });
 
+  MainContainer.addEventListener("click", function () {deactivateMenu(StartMenu)});
+
   Clock.call();
-};
+};  
+
+function deactivateMenu(menu) {
+  // deactivate self
+  menu.classList.remove("is-active");
+  StartButton.classList.remove("is-active");
+  // deactivate buttons
+  [].slice
+    .call(menu.querySelector(".Internal").getElementsByClassName("button"))
+    .forEach((button) => {
+      button.classList.remove("is-active");
+    });
+  // deactivate children
+  [].slice.call(menu.getElementsByClassName("Menu")).forEach((subMenu) => {
+    deactivateMenu(subMenu);
+  });
+}
 
 function moveSelection(MenuButtons, targetButton) {
   MenuButtons.forEach((button) => {
