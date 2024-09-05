@@ -94,7 +94,13 @@ div div a:hover {
   margin-right: 3px;
 }
 
-.Window {
+.button{
+  cursor: pointer;
+}
+
+.Window {    
+  font-size: 24px;
+  cursor: auto;
   color: #ffffff;
   display: grid;
   grid-template-columns: 4px auto 4px;
@@ -110,6 +116,10 @@ div div a:hover {
   right: 400px;
   top: 200px;
   bottom: 200px;
+}
+
+.Window .button{
+  display: block;
 }
 
 .Window_TopLeftBorder {
@@ -286,6 +296,7 @@ div div a:hover {
 }
 
 .Menu{
+  cursor: auto;
   font-family: "MS_Sans_Serif";
   display: none;
   position: fixed;
@@ -350,7 +361,7 @@ div .Menu img {
   height: 36px;
 }
 
-#StartMenu > img {
+#StartMenu > .Internal  > .button > img {
   height: 32px;
 }
 
@@ -373,24 +384,35 @@ div .Menu img {
   color: #c0c0c0;
 }
 
-#Taskbar .Internal {
+#Taskbar > .Internal {
   display: flex;
   flex-wrap: nowrap !important;
 }
 
-#Taskbar .button {
-  display: flex !important;
-  margin-right: 4px !important;
-  flex-wrap: nowrap !important;
+#Taskbar > .Internal > div.button{
   flex: 1 1 auto;
+  max-width: 150px;
+  width: 100%;
+  margin-right: 4px !important;
+  overflow: clip;
   outline: none !important;
   text-decoration: none !important;
+}
+
+#Taskbar > .Internal > div.button > .Internal{
+  cursor: pointer;
+  display: flex !important;
+  flex-wrap: nowrap !important;
   font-family: "W95FA";
-  max-width: 150px;
-  width: auto;
-  overflow: clip;
-  display: flex;
   align-items: center;
+  font-weight: 700;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left;
+  padding-left: 2px;
+  padding-right: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
   border-width: 2px;
   border-style: solid;
   border-bottom-color: #000000;
@@ -398,21 +420,11 @@ div .Menu img {
   border-top-color: #ffffff;
   border-left-color: #ffffff;
   background-color: #c0c0c0;
-  font-weight: 700;
-  padding-left: 2px;
-  padding-right: 0;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  box-sizing: border-box;
-  overflow: hidden;
-  position: relative;
-  text-align: left;
-  cursor: pointer;
   box-shadow: inset -2px 0 gray, inset -2px 2px #dfdfdf, inset -2px -2px gray,
     inset 0 0 0 2px #dfdfdf;
 }
 
-#Taskbar .button.is-active {
+#Taskbar > .Internal > .button.is-active > .Internal{
   border-bottom-color: #ffffff;
   border-right-color: #ffffff;
   border-top-color: #000000;
@@ -421,7 +433,7 @@ div .Menu img {
     inset 0 0 0 2px gray;
 }
 
-#Taskbar .button img {
+#Taskbar > .Internal > .button > .Internal > img {
   height: 20px;
   object-fit: contain;
   padding-right: 2px;
