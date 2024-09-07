@@ -4,24 +4,13 @@ window.onload = function () {
   const StartMenus = [].slice.call(
     StartButton.querySelectorAll(":scope > .Menu")
   );
+  const TaskbarButtons = document
+    .querySelector("#Taskbar .Internal")
+    .querySelectorAll(":scope > .button");
 
-  StartButton.querySelector(":scope > .Internal").addEventListener(
-    "click",
-    function () {
-      // toggle menu button
-      StartButton.classList.toggle("is-active");
-      // toggle menus
-      if (StartButton.classList.contains("is-active")) {
-        StartMenus.forEach((menu) => {
-          menu.classList.add("is-active");
-        });
-      } else {
-        StartMenus.forEach((menu) => {
-          deactivateMenu(menu);
-        });
-      }
-    }
-  );
+  TaskbarButtons.forEach((button) => {
+    setupTaskbarButton(button);
+  });
 
   MainContainer.addEventListener("click", function () {
     // deactivate menu button
@@ -41,12 +30,55 @@ window.onload = function () {
   Clock.call();
 };
 
-function toggleMenu(menu) {
-  if (menu.classList.contains("is-active")) {
-    deactivateMenu(menu);
-  } else {
-    menu.classList.add("is-active");
+function setupTaskbarButton(button) {
+  // check if menus
+  const buttonMenus = [].slice.call(button.querySelectorAll(":scope > .Menu"));
+  const buttonWindows = [].slice.call(
+    button.querySelectorAll(":scope > .Window")
+  );
+  if (buttonMenus.length != 0 && buttonWindows.length != 0) {
+    // toggle menus
+    button
+      .querySelector(":scope > .Internal")
+      .addEventListener("click", function () {
+        button.classList.toggle("is-active");
+        toggleMenu(button, buttonMenus);
+        toggleWindow(buttonWindows);
+      });
+    // toggle windows
+  } else if (buttonMenus.length != 0) {
+    button
+      .querySelector(":scope > .Internal")
+      .addEventListener("click", function () {
+        button.classList.toggle("is-active");
+        toggleMenu(button, buttonMenus);
+      });
+  } else if (buttonWindows.length != 0) {
+    button
+      .querySelector(":scope > .Internal")
+      .addEventListener("click", function () {
+        button.classList.toggle("is-active");
+        toggleWindow(buttonWindows);
+      });
   }
+}
+
+function toggleMenu(button, buttonMenus) {
+  if (button.classList.contains("is-active")) {
+    buttonMenus.forEach((menu) => {
+      menu.classList.add("is-active");
+    });
+  } else {
+    buttonMenus.forEach((menu) => {
+      deactivateMenu(menu);
+    });
+  }
+}
+
+function toggleWindow(buttonWindows) {
+  buttonWindows.forEach((window) => {
+    window.classList.toggle("is-active");
+  });
 }
 
 function setupMenuButtons(menu) {
@@ -60,16 +92,20 @@ function setupMenuButtons(menu) {
   menuButtons.forEach((menuButton) => {
     // setup each buttons menu
 
-    [].slice.call(menuButton.querySelectorAll(":scope > .Menu")).forEach((menuButtonMenu) => {
-      setupMenuButtons(menuButtonMenu);
-    });
+    [].slice
+      .call(menuButton.querySelectorAll(":scope > .Menu"))
+      .forEach((menuButtonMenu) => {
+        setupMenuButtons(menuButtonMenu);
+      });
     // give button activation function
     menuButton.addEventListener("mouseover", function () {
       moveSelection(menuButtons, menuButton);
-      
-      [].slice.call(menuButton.querySelectorAll(":scope > .Menu")).forEach((menuButtonMenu) => {
-        menuButtonMenu.classList.add("is-active");
-    });
+
+      [].slice
+        .call(menuButton.querySelectorAll(":scope > .Menu"))
+        .forEach((menuButtonMenu) => {
+          menuButtonMenu.classList.add("is-active");
+        });
     });
   });
 }

@@ -99,10 +99,10 @@ div div a:hover {
 }
 
 .Window {    
+  display: none;
   font-size: 24px;
   cursor: auto;
   color: #ffffff;
-  display: grid;
   grid-template-columns: 4px auto 4px;
   grid-template-rows: 4px auto 4px;
   position: fixed;
@@ -116,6 +116,10 @@ div div a:hover {
   right: 400px;
   top: 200px;
   bottom: 200px;
+}
+
+.Window.is-active{
+  display: grid;
 }
 
 .Window .button{
