@@ -1,9 +1,5 @@
 window.onload = function () {
   const MainContainer = document.getElementById("MainContainer");
-  const StartButton = document.getElementById("StartButton");
-  const StartMenus = [].slice.call(
-    StartButton.querySelectorAll(":scope > .Menu")
-  );
   const TaskbarButtons = document
     .querySelector("#Taskbar .Internal")
     .querySelectorAll(":scope > .button");
