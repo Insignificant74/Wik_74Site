@@ -18,10 +18,6 @@ window.onload = function () {
     });
   });
 
-  StartMenus.forEach((menu) => {
-    setupMenuButtons(menu);
-  });
-
   Clock.call();
 };
 
@@ -47,6 +43,9 @@ function setupTaskbarButton(button) {
   const buttonWindows = [].slice.call(
     button.querySelectorAll(":scope > .Window")
   );
+  buttonMenus.forEach((menu) => {
+    setupMenuButtons(menu);
+  });
   if (buttonMenus.length != 0 && buttonWindows.length != 0) {
     // toggle menus
     button
