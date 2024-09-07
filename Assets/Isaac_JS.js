@@ -13,22 +13,33 @@ window.onload = function () {
   });
 
   MainContainer.addEventListener("click", function () {
-    // deactivate menu button
-    StartButton.classList.remove("is-active");
-    // deactivate menus
-    StartMenus.forEach((menu) => {
-      deactivateMenu(menu);
+    TaskbarButtons.forEach((button) => {
+      deactivateTaskbarButton(button);
     });
   });
 
-  // start menus
   StartMenus.forEach((menu) => {
     setupMenuButtons(menu);
   });
 
-  // start clock
   Clock.call();
 };
+
+function deactivateTaskbarButton(button) {
+  // check if menus
+  const buttonMenus = [].slice.call(button.querySelectorAll(":scope > .Menu"));
+  const buttonWindows = [].slice.call(
+    button.querySelectorAll(":scope > .Window")
+  );
+
+  button.classList.remove("is-active");
+  buttonMenus.forEach((menu) => {
+    deactivateMenu(menu);
+  });
+  buttonWindows.forEach((window) => {
+    window.classList.remove("is-active");
+  });
+}
 
 function setupTaskbarButton(button) {
   // check if menus
