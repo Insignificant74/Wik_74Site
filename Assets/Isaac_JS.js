@@ -33,6 +33,8 @@ function setupDragWindow(window) {
   var initialY;
   var xOffset = 0;
   var yOffset = 0;
+  var freezeX;
+  var freezeY;
 
   TitleBar.addEventListener(
     "touchstart",
@@ -208,6 +210,8 @@ function setupDragWindow(window) {
     active = true;
   }
 
+  var pass = true;
+
   function drag(e) {
     if (active) {
       e.preventDefault();
@@ -230,30 +234,50 @@ function setupDragWindow(window) {
           window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
           break;
         case 1:
-          if (getWindowOffset(window.style.width, -minWidth) > xOffset) {
-            window.style.left =
-              getWindowOffset(window.style.left, xOffset) + "px";
-            window.style.width =
-              getWindowOffset(window.style.width, -xOffset) + "px";
-          } else {
-            xOffset = getWindowOffset(window.style.width, -minWidth);
-            window.style.left =
-              getWindowOffset(window.style.left, xOffset) + "px";
-            window.style.width = minWidth + "px";
+          if (freezeX != null) {
+            if (e.type === "touchmove") {
+              pass = freezeX > e.touches[0].clientX;
+              xOffset = e.touches[0].clientX - freezeX;
+            } else {
+              pass = freezeX > e.clientX;
+              xOffset = e.clientX - freezeX;
+            }
           }
-
-          
+          if (pass){
+            if (getWindowOffset(window.style.width, -minWidth) > xOffset) {
+              window.style.left =
+                getWindowOffset(window.style.left, xOffset) + "px";
+              window.style.width =
+                getWindowOffset(window.style.width, -xOffset) + "px";
+              freezeX = null;
+            } else {
+              xOffset = getWindowOffset(window.style.width, -minWidth);
+              if (e.type === "touchmove") {
+                freezeX =
+                  e.touches[0].clientX -
+                  xOffset +
+                  getWindowOffset(window.style.width, -minWidth);
+              } else {
+                freezeX =
+                  e.clientX +
+                  (getWindowOffset(window.style.width, -minWidth) - xOffset);
+              }
+              window.style.left =
+                getWindowOffset(window.style.left, xOffset) + "px";
+              window.style.width = minWidth + "px";
+            }  
+          }
+          pass = true;
           if (getWindowOffset(window.style.height, -minHeight) > yOffset) {
             window.style.top =
               getWindowOffset(window.style.top, yOffset) + "px";
             window.style.height =
               getWindowOffset(window.style.height, -yOffset) + "px";
-          } else {
-            yOffset = getWindowOffset(window.style.height, -minHeight);
-            window.style.top =
-              getWindowOffset(window.style.top, yOffset) + "px";
-            window.style.height = minHeight + "px";
+            break;
           }
+          yOffset = getWindowOffset(window.style.height, -minHeight);
+          window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
+          window.style.height = minHeight + "px";
           break;
       }
     }
