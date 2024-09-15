@@ -107,47 +107,38 @@ function setupDragWindow(window) {
 
       switch (target) {
         case 0:
-          window.style.left =
-            parseInt(window.style.left.slice(0, -2), 10) + xOffset + "px";
-          window.style.top =
-            parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
+          window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
+          window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
           break;
         case 1:
-          if (
-            parseInt(window.style.width.slice(0, -2), 10) - minWidth >
-            xOffset
-          ) {
-            window.style.left =
-              parseInt(window.style.left.slice(0, -2), 10) + xOffset + "px";
-            window.style.width =
-              parseInt(window.style.width.slice(0, -2), 10) - xOffset + "px";
+          if (getWindowOffset(window.style.width, -minWidth) > xOffset) {
+            window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
+            window.style.width = getWindowOffset(window.style.width, -xOffset) + "px";
           } else {
-            console.log("keft")
-            xOffset = parseInt(window.style.width.slice(0, -2), 10) - minWidth;
-            window.style.left =
-              parseInt(window.style.left.slice(0, -2), 10) + xOffset + "px";
+            xOffset = getWindowOffset(window.style.width, -minWidth);
+            window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
             window.style.width = minWidth + "px";
           }
 
-          if (
-            parseInt(window.style.height.slice(0, -2), 10) - minHeight >
-            yOffset
-          ) {
-            window.style.top =
-              parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
-            window.style.height =
-              parseInt(window.style.height.slice(0, -2), 10) - yOffset + "px";
+          if (getWindowOffset(window.style.height, -minHeight) > yOffset) {
+            window.style.top = getWindowOffset(window.style.top, yOffset);
+            window.style.height = getWindowOffset(
+              window.style.height,
+              -yOffset
+            ) + "px";
           } else {
-            console.log("keft")
-            yOffset = parseInt(window.style.height.slice(0, -2), 10) - minHeight;
-            window.style.top =
-              parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
+            yOffset = getWindowOffset(window.style.height, -minHeight);
+            window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
             window.style.height = minHeight + "px";
           }
           break;
       }
     }
   }
+}
+
+function getWindowOffset(style, offset) {
+  return parseInt(style.slice(0, -2), 10) + offset;
 }
 
 function deselectTaskbarButtons() {
