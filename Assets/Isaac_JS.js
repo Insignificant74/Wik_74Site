@@ -9,27 +9,156 @@ window.onload = function () {
   });
 
   MainContainer.addEventListener("click", function () {
-    TaskbarButtons.forEach((button) => {
-      deactivateTaskbarButton(button);
-    });
+    deselectTaskbarButtons();
   });
 
   Clock.call();
 };
 
-function deactivateTaskbarButton(button) {
-  // check if menus
-  const buttonMenus = [].slice.call(button.querySelectorAll(":scope > .Menu"));
-  const buttonWindows = [].slice.call(
-    button.querySelectorAll(":scope > .Window")
+function setupDragWindow(window) {
+  var TitleBar = window.querySelector(".TitleBar");
+  var TopLeftBorder = window.querySelector(".Window_TopLeftBorder");
+  var active = false;
+  var target = -1;
+  var initialX;
+  var initialY;
+  var xOffset = 0;
+  var yOffset = 0;
+
+  TitleBar.addEventListener(
+    "touchstart",
+    function (e) {
+      target = 0;
+      dragStart(e);
+    },
+    false
+  );
+  TitleBar.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 0;
+      dragStart(e);
+    },
+    false
+  );
+  TopLeftBorder.addEventListener(
+    "touchstart",
+    function (e) {
+      target = 1;
+      dragStart(e);
+    },
+    false
+  );
+  TopLeftBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 1;
+      dragStart(e);
+    },
+    false
   );
 
-  button.classList.remove("is-active");
-  buttonMenus.forEach((menu) => {
-    deactivateMenu(menu);
-  });
-  buttonWindows.forEach((window) => {
-    window.classList.remove("is-active");
+  document.body.addEventListener(
+    "touchend",
+    function () {
+      active = false;
+      target = -1;
+    },
+    false
+  );
+  document.body.addEventListener(
+    "mouseup",
+    function () {
+      active = false;
+      target = -1;
+    },
+    false
+  );
+  document.body.addEventListener("touchmove", drag, false);
+  document.body.addEventListener("mousemove", drag, false);
+
+  function dragStart(e) {
+    if (e.type === "touchstart") {
+      initialX = e.touches[0].clientX - xOffset;
+      initialY = e.touches[0].clientY - yOffset;
+    } else {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+    }
+    active = true;
+  }
+
+  function drag(e) {
+    if (active) {
+      e.preventDefault();
+
+      if (e.type === "touchmove") {
+        xOffset = e.touches[0].clientX - initialX;
+        yOffset = e.touches[0].clientY - initialY;
+      } else {
+        xOffset = e.clientX - initialX;
+        yOffset = e.clientY - initialY;
+      }
+
+      initialX += xOffset;
+      initialY += yOffset;
+
+      console.log(xOffset);
+      console.log(window.style.width);
+      console.log(window.style.left);
+      switch (target) {
+        case 0:
+          window.style.left =
+            parseInt(window.style.left.slice(0, -2), 10) + xOffset + "px";
+          window.style.top =
+            parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
+          break;
+        case 1:
+          if (parseInt(window.style.width.slice(0, -2), 10) > xOffset) {
+            window.style.left =
+              parseInt(window.style.left.slice(0, -2), 10) + xOffset + "px";
+            window.style.width =
+              parseInt(window.style.width.slice(0, -2), 10) - xOffset + "px";
+          } else {
+            window.style.left =
+              parseInt(window.style.left.slice(0, -2), 10) -
+              parseInt(window.style.width.slice(0, -2), 10) +
+              "px";
+            window.style.width = "0px";
+          }
+
+          window.style.top =
+            parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
+          window.style.height =
+            parseInt(window.style.height.slice(0, -2), 10) - yOffset + "px";
+          break;
+      }
+    }
+  }
+}
+
+function deselectTaskbarButtons() {
+  const TaskbarButtons = document
+    .querySelector("#Taskbar .Internal")
+    .querySelectorAll(":scope > .button");
+
+  TaskbarButtons.forEach((button) => {
+    const buttonMenus = [].slice.call(
+      button.querySelectorAll(":scope > .Menu")
+    );
+    const buttonWindows = [].slice.call(
+      button.querySelectorAll(":scope > .Window")
+    );
+
+    buttonWindows.forEach((window) => {
+      window.classList.remove("selected");
+    });
+    buttonMenus.forEach((menu) => {
+      deactivateMenu(menu);
+    });
+    if (buttonWindows.length == 0) {
+      button.classList.remove("is-active");
+    }
   });
 }
 
@@ -43,7 +172,7 @@ function setupTaskbarButton(button) {
     setupMenuButtons(menu);
   });
   if (buttonMenus.length != 0 && buttonWindows.length != 0) {
-    // toggle menus
+    // if menus and windows
     button
       .querySelector(":scope > .Internal")
       .addEventListener("click", function () {
@@ -51,7 +180,18 @@ function setupTaskbarButton(button) {
         toggleMenu(button, buttonMenus);
         toggleWindow(buttonWindows);
       });
-    // toggle windows
+    buttonWindows.forEach((window) => {
+      setupDragWindow(window);
+      window.addEventListener("mouseup", function () {
+        deselectTaskbarButtons();
+        selectWindow(window);
+      });
+      window.addEventListener("touchend", function () {
+        deselectTaskbarButtons();
+        selectWindow(window);
+      });
+    });
+    // if menus
   } else if (buttonMenus.length != 0) {
     button
       .querySelector(":scope > .Internal")
@@ -59,6 +199,7 @@ function setupTaskbarButton(button) {
         button.classList.toggle("is-active");
         toggleMenu(button, buttonMenus);
       });
+    // if windows
   } else if (buttonWindows.length != 0) {
     button
       .querySelector(":scope > .Internal")
@@ -66,11 +207,23 @@ function setupTaskbarButton(button) {
         button.classList.toggle("is-active");
         toggleWindow(buttonWindows);
       });
+    buttonWindows.forEach((window) => {
+      setupDragWindow(window);
+      window.addEventListener("mouseup", function () {
+        deselectTaskbarButtons();
+        selectWindow(window);
+      });
+      window.addEventListener("touchend", function () {
+        deselectTaskbarButtons();
+        selectWindow(window);
+      });
+    });
   }
 }
 
 function toggleMenu(button, buttonMenus) {
   if (button.classList.contains("is-active")) {
+    deselectTaskbarButtons();
     buttonMenus.forEach((menu) => {
       menu.classList.add("is-active");
     });
@@ -83,8 +236,18 @@ function toggleMenu(button, buttonMenus) {
 
 function toggleWindow(buttonWindows) {
   buttonWindows.forEach((window) => {
-    window.classList.toggle("is-active");
+    if (window.classList.contains("is-active")) {
+      window.classList.remove("is-active");
+      window.classList.remove("selected");
+    } else {
+      window.classList.add("is-active");
+      selectWindow(window);
+    }
   });
+}
+
+function selectWindow(window) {
+  window.classList.add("selected");
 }
 
 function setupMenuButtons(menu) {

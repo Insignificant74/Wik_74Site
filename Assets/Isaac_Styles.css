@@ -25,6 +25,7 @@ body {
   background: none;
   padding: 0;
   margin: 0;
+  touch-action: none;
 }
 
 img {
@@ -110,16 +111,17 @@ div div a:hover {
   text-decoration: none !important;
   font-family: "W95FA";
   text-shadow: none;
-  width: auto;
-  height: auto;
-  left: 400px;
-  right: 400px;
-  top: 200px;
-  bottom: 200px;
+  min-width: 200px;
+  min-height: 100px;
+  z-index: 100;
 }
 
 .Window.is-active{
   display: grid;
+}
+
+.Window.selected{
+  z-index: 300;
 }
 
 .Window .button{
@@ -178,6 +180,7 @@ div div a:hover {
   width: auto;
   height: auto;
   background-color: #c0c0c0;
+  overflow: clip;
 }
 
 .Window_RightBorder {
@@ -237,7 +240,7 @@ div div a:hover {
   overflow: clip;
 }
 
-.TitleBar .is-active{
+.Window.selected .TitleBar{
   background-color: #0000a8;
 }
 
@@ -313,6 +316,7 @@ div div a:hover {
   background-color: #c0c0c0;
   text-shadow: none;
   margin: 0;
+  z-index: 200;
 }
 
 .Menu.is-active {
