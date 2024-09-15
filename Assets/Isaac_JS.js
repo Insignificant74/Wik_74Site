@@ -20,6 +20,13 @@ function setupDragWindow(window) {
   const minHeight = 100;
   var TitleBar = window.querySelector(".TitleBar");
   var TopLeftBorder = window.querySelector(".Window_TopLeftBorder");
+  var TopBorder = window.querySelector(".Window_TopBorder");
+  var TopRightBorder = window.querySelector(".Window_TopRightBorder");
+  var LeftBorder = window.querySelector(".Window_LeftBorder");
+  var RightBorder = window.querySelector(".Window_RightBorder");
+  var BottomLeftBorder = window.querySelector(".Window_BottomLeftBorder");
+  var BottomBorder = window.querySelector(".Window_BottomBorder");
+  var BottomRightBorder = window.querySelector(".Window_BottomRightBorder");
   var active = false;
   var target = -1;
   var initialX;
@@ -59,7 +66,118 @@ function setupDragWindow(window) {
     },
     false
   );
-
+  TopBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 2;
+      dragStart(e);
+    },
+    false
+  );
+  TopBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 2;
+      dragStart(e);
+    },
+    false
+  );
+  TopRightBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 3;
+      dragStart(e);
+    },
+    false
+  );
+  TopRightBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 3;
+      dragStart(e);
+    },
+    false
+  );
+  LeftBorder.addEventListener(
+    "touchstart",
+    function (e) {
+      target = 4;
+      dragStart(e);
+    },
+    false
+  );
+  LeftBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 4;
+      dragStart(e);
+    },
+    false
+  );
+  RightBorder.addEventListener(
+    "touchstart",
+    function (e) {
+      target = 5;
+      dragStart(e);
+    },
+    false
+  );
+  RightBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 5;
+      dragStart(e);
+    },
+    false
+  );
+  BottomLeftBorder.addEventListener(
+    "touchstart",
+    function (e) {
+      target = 6;
+      dragStart(e);
+    },
+    false
+  );
+  BottomLeftBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 6;
+      dragStart(e);
+    },
+    false
+  );
+  BottomBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 7;
+      dragStart(e);
+    },
+    false
+  );
+  BottomBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 7;
+      dragStart(e);
+    },
+    false
+  );
+  BottomRightBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 8;
+      dragStart(e);
+    },
+    false
+  );
+  BottomRightBorder.addEventListener(
+    "mousedown",
+    function (e) {
+      target = 8;
+      dragStart(e);
+    },
+    false
+  );
   document.body.addEventListener(
     "touchend",
     function () {
@@ -107,28 +225,33 @@ function setupDragWindow(window) {
 
       switch (target) {
         case 0:
-          window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
+          window.style.left =
+            getWindowOffset(window.style.left, xOffset) + "px";
           window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
           break;
         case 1:
           if (getWindowOffset(window.style.width, -minWidth) > xOffset) {
-            window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
-            window.style.width = getWindowOffset(window.style.width, -xOffset) + "px";
+            window.style.left =
+              getWindowOffset(window.style.left, xOffset) + "px";
+            window.style.width =
+              getWindowOffset(window.style.width, -xOffset) + "px";
           } else {
             xOffset = getWindowOffset(window.style.width, -minWidth);
-            window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
+            window.style.left =
+              getWindowOffset(window.style.left, xOffset) + "px";
             window.style.width = minWidth + "px";
           }
 
+          
           if (getWindowOffset(window.style.height, -minHeight) > yOffset) {
-            window.style.top = getWindowOffset(window.style.top, yOffset);
-            window.style.height = getWindowOffset(
-              window.style.height,
-              -yOffset
-            ) + "px";
+            window.style.top =
+              getWindowOffset(window.style.top, yOffset) + "px";
+            window.style.height =
+              getWindowOffset(window.style.height, -yOffset) + "px";
           } else {
             yOffset = getWindowOffset(window.style.height, -minHeight);
-            window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
+            window.style.top =
+              getWindowOffset(window.style.top, yOffset) + "px";
             window.style.height = minHeight + "px";
           }
           break;
