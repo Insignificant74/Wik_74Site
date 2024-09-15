@@ -16,6 +16,8 @@ window.onload = function () {
 };
 
 function setupDragWindow(window) {
+  const minWidth = 200;
+  const minHeight = 100;
   var TitleBar = window.querySelector(".TitleBar");
   var TopLeftBorder = window.querySelector(".Window_TopLeftBorder");
   var active = false;
@@ -103,9 +105,6 @@ function setupDragWindow(window) {
       initialX += xOffset;
       initialY += yOffset;
 
-      console.log(xOffset);
-      console.log(window.style.width);
-      console.log(window.style.left);
       switch (target) {
         case 0:
           window.style.left =
@@ -114,23 +113,37 @@ function setupDragWindow(window) {
             parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
           break;
         case 1:
-          if (parseInt(window.style.width.slice(0, -2), 10) > xOffset) {
+          if (
+            parseInt(window.style.width.slice(0, -2), 10) - minWidth >
+            xOffset
+          ) {
             window.style.left =
               parseInt(window.style.left.slice(0, -2), 10) + xOffset + "px";
             window.style.width =
               parseInt(window.style.width.slice(0, -2), 10) - xOffset + "px";
           } else {
+            console.log("keft")
+            xOffset = parseInt(window.style.width.slice(0, -2), 10) - minWidth;
             window.style.left =
-              parseInt(window.style.left.slice(0, -2), 10) -
-              parseInt(window.style.width.slice(0, -2), 10) +
-              "px";
-            window.style.width = "0px";
+              parseInt(window.style.left.slice(0, -2), 10) + xOffset + "px";
+            window.style.width = minWidth + "px";
           }
 
-          window.style.top =
-            parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
-          window.style.height =
-            parseInt(window.style.height.slice(0, -2), 10) - yOffset + "px";
+          if (
+            parseInt(window.style.height.slice(0, -2), 10) - minHeight >
+            yOffset
+          ) {
+            window.style.top =
+              parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
+            window.style.height =
+              parseInt(window.style.height.slice(0, -2), 10) - yOffset + "px";
+          } else {
+            console.log("keft")
+            yOffset = parseInt(window.style.height.slice(0, -2), 10) - minHeight;
+            window.style.top =
+              parseInt(window.style.top.slice(0, -2), 10) + yOffset + "px";
+            window.style.height = minHeight + "px";
+          }
           break;
       }
     }
