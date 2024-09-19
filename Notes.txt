@@ -1,0 +1,1 @@
+Isaac_Site: minor issues with what is probably rounding errors when resizing windows too much too quickly, this however is not very noticeable in casual use and thus is not a priority

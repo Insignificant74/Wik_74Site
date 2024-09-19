@@ -232,11 +232,15 @@ function setupDragWindow(window) {
         window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
         break;
       case 1:
-        resizeLeft(e);
         resizeTop(e);
+        resizeLeft(e);
         break;
       case 2:
         resizeTop(e);
+        break;
+      case 3:
+        resizeTop(e);
+        resizeRight(e);
         break;
     }
   }
@@ -311,6 +315,43 @@ function setupDragWindow(window) {
       }
       window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
       window.style.height = minHeight + "px";
+    }
+  }
+  
+  function resizeRight(e) {
+    var pass = true;
+
+    if (freezeX != null) {
+      if (e.type === "touchmove") {
+        pass = freezeX < e.touches[0].clientX;
+        xOffset = freezeX - e.touches[0].clientX;
+      } else {
+        pass = freezeX < e.clientX;
+        xOffset = freezeX - e.clientX;
+      }
+    }
+    if (pass) {
+      console.log("pass");
+      console.log(freezeX);
+      if (getWindowOffset(window.style.width, -minWidth) > -Math.abs(xOffset)) {
+        window.style.width =
+          getWindowOffset(window.style.width, xOffset) + "px";
+        freezeX = null;
+        return;
+      }
+
+      xOffset = getWindowOffset(window.style.width, -minWidth);
+      if (e.type === "touchmove") {
+        freezeX =
+          e.touches[0].clientX -
+          xOffset +
+          getWindowOffset(window.style.width, -minWidth);
+      } else {
+        freezeX =
+          e.clientX -
+          (getWindowOffset(window.style.width, -minWidth) - xOffset);
+      }
+      window.style.width = minWidth + "px";
     }
   }
 }
