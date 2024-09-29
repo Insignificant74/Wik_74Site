@@ -457,6 +457,7 @@ function setupTaskbarButton(button) {
 function toggleMenu(button, buttonMenus) {
   if (button.classList.contains("is-active")) {
     deselectTaskbarButtons();
+    button.classList.add("is-active");
     buttonMenus.forEach((menu) => {
       menu.classList.add("is-active");
     });
