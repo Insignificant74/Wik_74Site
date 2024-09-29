@@ -108,6 +108,8 @@ div div a:hover {
 }
 
 .Window {    
+  width: auto;
+  height: auto;
   display: none;
   font-size: 24px;
   cursor: auto;

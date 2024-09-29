@@ -200,6 +200,8 @@ function setupDragWindow(window) {
   document.body.addEventListener("mousemove", drag, false);
 
   function dragStart(e) {
+    freezeX = null;
+    freezeY = null;
     if (e.type === "touchstart") {
       initialX = e.touches[0].clientX - xOffset;
       initialY = e.touches[0].clientY - yOffset;
@@ -230,6 +232,10 @@ function setupDragWindow(window) {
       case 0:
         window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
         window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
+        window.style.right =
+          getWindowOffset(window.style.right, -xOffset) + "px";
+        window.style.bottom =
+          getWindowOffset(window.style.bottom, -yOffset) + "px";
         break;
       case 1:
         resizeTop(e);
@@ -242,116 +248,120 @@ function setupDragWindow(window) {
         resizeTop(e);
         resizeRight(e);
         break;
+      case 4:
+        resizeLeft(e);
+        break;
+      case 5:
+        resizeRight(e);
+        break;
+      case 6:
+        resizeBottom(e);
+        resizeLeft(e);
+        break;
+      case 7:
+        resizeBottom(e);
+        break;
+      case 8:
+        resizeBottom(e);
+        resizeRight(e);
+        break;
     }
   }
 
   function resizeLeft(e) {
     var pass = true;
-
+    var eClientX;
+    if (e.type === "touchmove") {
+      eClientX = e.touches[0].clientX;
+    } else {
+      eClientX = e.clientX;
+    }
     if (freezeX != null) {
-      if (e.type === "touchmove") {
-        pass = freezeX > e.touches[0].clientX;
-        xOffset = e.touches[0].clientX - freezeX;
-      } else {
-        pass = freezeX > e.clientX;
-        xOffset = e.clientX - freezeX;
-      }
+      pass = freezeX > eClientX;
     }
     if (pass) {
-      if (getWindowOffset(window.style.width, -minWidth) > xOffset) {
-        window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
-        window.style.width =
-          getWindowOffset(window.style.width, -xOffset) + "px";
+      var minLeft = innerWidth - getWindowOffset(window.style.right, minWidth);
+      if (eClientX <= minLeft) {
+        window.style.left = eClientX + "px";
         freezeX = null;
         return;
       }
 
-      xOffset = getWindowOffset(window.style.width, -minWidth);
-      if (e.type === "touchmove") {
-        freezeX =
-          e.touches[0].clientX -
-          xOffset +
-          getWindowOffset(window.style.width, -minWidth);
-      } else {
-        freezeX =
-          e.clientX +
-          (getWindowOffset(window.style.width, -minWidth) - xOffset);
-      }
-      window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
-      window.style.width = minWidth + "px";
+      freezeX = minLeft;
+      window.style.left = freezeX + "px";
     }
   }
 
   function resizeTop(e) {
     var pass = true;
-
+    var eClientY;
+    if (e.type === "touchmove") {
+      eClientY = e.touches[0].clientY;
+    } else {
+      eClientY = e.clientY;
+    }
     if (freezeY != null) {
-      if (e.type === "touchmove") {
-        pass = freezeY > e.touches[0].clientY;
-        yOffset = e.touches[0].clientY - freezeY;
-      } else {
-        pass = freezeY > e.clientY;
-        yOffset = e.clientY - freezeY;
-      }
+      pass = freezeY > eClientY;
     }
     if (pass) {
-      if (getWindowOffset(window.style.height, -minHeight) > yOffset) {
-        window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
-        window.style.height =
-          getWindowOffset(window.style.height, -yOffset) + "px";
+      var minTop =
+        innerHeight - getWindowOffset(window.style.bottom, minHeight);
+      if (eClientY <= minTop) {
+        window.style.top = eClientY + "px";
         freezeY = null;
         return;
       }
-      yOffset = getWindowOffset(window.style.height, -minHeight);
-      if (e.type === "touchmove") {
-        freezeY =
-          e.touches[0].clientY -
-          yOffset +
-          getWindowOffset(window.style.height, -minHeight);
-      } else {
-        freezeY =
-          e.clientY +
-          (getWindowOffset(window.style.height, -minHeight) - yOffset);
-      }
-      window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
-      window.style.height = minHeight + "px";
+
+      freezeY = minTop;
+      window.style.top = freezeY + "px";
     }
   }
-  
+
   function resizeRight(e) {
     var pass = true;
-
+    var eClientX;
+    if (e.type === "touchmove") {
+      eClientX = e.touches[0].clientX;
+    } else {
+      eClientX = e.clientX;
+    }
     if (freezeX != null) {
-      if (e.type === "touchmove") {
-        pass = freezeX < e.touches[0].clientX;
-        xOffset = freezeX - e.touches[0].clientX;
-      } else {
-        pass = freezeX < e.clientX;
-        xOffset = freezeX - e.clientX;
-      }
+      pass = freezeX < eClientX;
     }
     if (pass) {
-      console.log("pass");
-      console.log(freezeX);
-      if (getWindowOffset(window.style.width, -minWidth) > -Math.abs(xOffset)) {
-        window.style.width =
-          getWindowOffset(window.style.width, xOffset) + "px";
+      var minRight = getWindowOffset(window.style.left, minWidth);
+      if (eClientX >= minRight) {
+        window.style.right = innerWidth - eClientX + "px";
         freezeX = null;
         return;
       }
 
-      xOffset = getWindowOffset(window.style.width, -minWidth);
-      if (e.type === "touchmove") {
-        freezeX =
-          e.touches[0].clientX -
-          xOffset +
-          getWindowOffset(window.style.width, -minWidth);
-      } else {
-        freezeX =
-          e.clientX -
-          (getWindowOffset(window.style.width, -minWidth) - xOffset);
+      freezeX = minRight;
+      window.style.right = innerWidth - freezeX + "px";
+    }
+  }  
+  
+  function resizeBottom(e) {
+    var pass = true;
+    var eClientY;
+    if (e.type === "touchmove") {
+      eClientY = e.touches[0].clientY;
+    } else {
+      eClientY = e.clientY;
+    }
+    if (freezeY != null) {
+      pass = freezeY < eClientY;
+    }
+    if (pass) {
+      var minBottom = getWindowOffset(window.style.top, minHeight);
+      if (eClientY >= minBottom) {
+        window.style.bottom = innerHeight - eClientY + "px";
+        freezeY = null;
+        return;
       }
-      window.style.width = minWidth + "px";
+
+      freezeY = minBottom;
+      window.style.bottom = innerHeight - freezeY + "px";
     }
   }
 }
