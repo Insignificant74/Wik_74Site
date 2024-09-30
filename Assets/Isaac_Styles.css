@@ -7,28 +7,28 @@
 }
 
 @font-face {
-  font-family: "StickyPops";
+  font-family: "CommentFont";
   src: url("StickyPops.otf");
 }
 
 @font-face {
-  font-family: "Cyberthrone";
+  font-family: "BodyFont";
   src: url("Cyberthrone.ttf");
 }
 
 @font-face {
-  font-family: "W95FA";
+  font-family: "WindowFont";
   src: url("W95FA.otf");
 }
 
 @font-face {
-  font-family: "MS_Sans_Serif";
+  font-family: "MenuFont";
   src: url("MS_Sans_Serif.ttf");
 }
 
 body {
   color: #00fefc;
-  font-family: "Cyberthrone";
+  font-family: "BodyFont";
   text-shadow: 2px 2px 5px #d30eff;
   background: none;
   padding: 0;
@@ -67,7 +67,7 @@ div div a:hover {
 }
 
 .Comment {
-  font: 0.8em "StickyPops", sans-serif;
+  font: 0.8em "CommentFont", sans-serif;
 }
 
 .Textbox {
@@ -76,7 +76,7 @@ div div a:hover {
   background-color: white;
   text-shadow: none;
   color: black;
-  font: 0.75em "Cyberthrone", sans-serif;
+  font: 0.75em "BodyFont", sans-serif;
   padding: 2%;
 }
 
@@ -119,7 +119,7 @@ div div a:hover {
   position: fixed;
   outline: none !important;
   text-decoration: none !important;
-  font-family: "W95FA";
+  font-family: "WindowFont";
   text-shadow: none;
   min-width: 200px;
   min-height: 100px;
@@ -287,11 +287,12 @@ div div a:hover {
 
 #Background {
   margin: 0;
-  object-fit: contain;
-  width: 100%;
+  object-fit: cover;
   position: fixed;
   z-index: -1;
   display: block;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 #Taskbar {
@@ -300,7 +301,7 @@ div div a:hover {
   border-top: 2px solid #ffffff;
   color: #000000;
   text-shadow: none;
-  font-family: "W95FA";
+  font-family: "WindowFont";
   font-size: 16px;
   padding: 2px 0;
   height: 28px;
@@ -313,7 +314,7 @@ div div a:hover {
 
 .Menu{
   cursor: auto;
-  font-family: "MS_Sans_Serif";
+  font-family: "MenuFont";
   display: none;
   position: fixed;
   border-width: 2px;
@@ -420,7 +421,7 @@ div .Menu img {
   cursor: pointer;
   display: flex !important;
   flex-wrap: nowrap !important;
-  font-family: "W95FA";
+  font-family: "WindowFont";
   align-items: center;
   font-weight: 700;
   box-sizing: border-box;

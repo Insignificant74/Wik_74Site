@@ -15,18 +15,18 @@ window.onload = function () {
   Clock.call();
 };
 
-function setupDragWindow(window) {
+function setupDragWindow(programWindow) {
   const minWidth = 200;
   const minHeight = 100;
-  var TitleBar = window.querySelector(".TitleBar");
-  var TopLeftBorder = window.querySelector(".Window_TopLeftBorder");
-  var TopBorder = window.querySelector(".Window_TopBorder");
-  var TopRightBorder = window.querySelector(".Window_TopRightBorder");
-  var LeftBorder = window.querySelector(".Window_LeftBorder");
-  var RightBorder = window.querySelector(".Window_RightBorder");
-  var BottomLeftBorder = window.querySelector(".Window_BottomLeftBorder");
-  var BottomBorder = window.querySelector(".Window_BottomBorder");
-  var BottomRightBorder = window.querySelector(".Window_BottomRightBorder");
+  var TitleBar = programWindow.querySelector(".TitleBar");
+  var TopLeftBorder = programWindow.querySelector(".Window_TopLeftBorder");
+  var TopBorder = programWindow.querySelector(".Window_TopBorder");
+  var TopRightBorder = programWindow.querySelector(".Window_TopRightBorder");
+  var LeftBorder = programWindow.querySelector(".Window_LeftBorder");
+  var RightBorder = programWindow.querySelector(".Window_RightBorder");
+  var BottomLeftBorder = programWindow.querySelector(".Window_BottomLeftBorder");
+  var BottomBorder = programWindow.querySelector(".Window_BottomBorder");
+  var BottomRightBorder = programWindow.querySelector(".Window_BottomRightBorder");
   var active = false;
   var target = -1;
   var initialX;
@@ -35,7 +35,20 @@ function setupDragWindow(window) {
   var yOffset = 0;
   var freezeX;
   var freezeY;
+  var screenHeight = innerHeight;
+  var screenWidth = innerWidth;
 
+  
+  window.addEventListener("resize", function () {
+    var heightChange = (innerHeight - screenHeight)/2;
+    var widthCharnge = (innerWidth - screenWidth)/2
+    programWindow.style.top = getWindowOffset(programWindow.style.top, heightChange) + "px";
+    programWindow.style.bottom = getWindowOffset(programWindow.style.bottom, heightChange) + "px";
+    programWindow.style.left = getWindowOffset(programWindow.style.left, widthCharnge) + "px";
+    programWindow.style.right = getWindowOffset(programWindow.style.right, widthCharnge) + "px";
+    screenHeight = innerHeight;
+    screenWidth = innerWidth;
+  });
   TitleBar.addEventListener(
     "touchstart",
     function (e) {
@@ -230,12 +243,12 @@ function setupDragWindow(window) {
 
     switch (target) {
       case 0:
-        window.style.left = getWindowOffset(window.style.left, xOffset) + "px";
-        window.style.top = getWindowOffset(window.style.top, yOffset) + "px";
-        window.style.right =
-          getWindowOffset(window.style.right, -xOffset) + "px";
-        window.style.bottom =
-          getWindowOffset(window.style.bottom, -yOffset) + "px";
+        programWindow.style.left = getWindowOffset(programWindow.style.left, xOffset) + "px";
+        programWindow.style.top = getWindowOffset(programWindow.style.top, yOffset) + "px";
+        programWindow.style.right =
+          getWindowOffset(programWindow.style.right, -xOffset) + "px";
+        programWindow.style.bottom =
+          getWindowOffset(programWindow.style.bottom, -yOffset) + "px";
         break;
       case 1:
         resizeTop(e);
@@ -280,15 +293,15 @@ function setupDragWindow(window) {
       pass = freezeX > eClientX;
     }
     if (pass) {
-      var minLeft = innerWidth - getWindowOffset(window.style.right, minWidth);
+      var minLeft = innerWidth - getWindowOffset(programWindow.style.right, minWidth);
       if (eClientX <= minLeft) {
-        window.style.left = eClientX + "px";
+        programWindow.style.left = eClientX + "px";
         freezeX = null;
         return;
       }
 
       freezeX = minLeft;
-      window.style.left = freezeX + "px";
+      programWindow.style.left = freezeX + "px";
     }
   }
 
@@ -305,15 +318,15 @@ function setupDragWindow(window) {
     }
     if (pass) {
       var minTop =
-        innerHeight - getWindowOffset(window.style.bottom, minHeight);
+        innerHeight - getWindowOffset(programWindow.style.bottom, minHeight);
       if (eClientY <= minTop) {
-        window.style.top = eClientY + "px";
+        programWindow.style.top = eClientY + "px";
         freezeY = null;
         return;
       }
 
       freezeY = minTop;
-      window.style.top = freezeY + "px";
+      programWindow.style.top = freezeY + "px";
     }
   }
 
@@ -329,18 +342,18 @@ function setupDragWindow(window) {
       pass = freezeX < eClientX;
     }
     if (pass) {
-      var minRight = getWindowOffset(window.style.left, minWidth);
+      var minRight = getWindowOffset(programWindow.style.left, minWidth);
       if (eClientX >= minRight) {
-        window.style.right = innerWidth - eClientX + "px";
+        programWindow.style.right = innerWidth - eClientX + "px";
         freezeX = null;
         return;
       }
 
       freezeX = minRight;
-      window.style.right = innerWidth - freezeX + "px";
+      programWindow.style.right = innerWidth - freezeX + "px";
     }
-  }  
-  
+  }
+
   function resizeBottom(e) {
     var pass = true;
     var eClientY;
@@ -353,15 +366,15 @@ function setupDragWindow(window) {
       pass = freezeY < eClientY;
     }
     if (pass) {
-      var minBottom = getWindowOffset(window.style.top, minHeight);
+      var minBottom = getWindowOffset(programWindow.style.top, minHeight);
       if (eClientY >= minBottom) {
-        window.style.bottom = innerHeight - eClientY + "px";
+        programWindow.style.bottom = innerHeight - eClientY + "px";
         freezeY = null;
         return;
       }
 
       freezeY = minBottom;
-      window.style.bottom = innerHeight - freezeY + "px";
+      programWindow.style.bottom = innerHeight - freezeY + "px";
     }
   }
 }
@@ -383,8 +396,8 @@ function deselectTaskbarButtons() {
       button.querySelectorAll(":scope > .Window")
     );
 
-    buttonWindows.forEach((window) => {
-      window.classList.remove("selected");
+    buttonWindows.forEach((programWindow) => {
+      programWindow.classList.remove("selected");
     });
     buttonMenus.forEach((menu) => {
       deactivateMenu(menu);
@@ -397,91 +410,65 @@ function deselectTaskbarButtons() {
 
 function setupTaskbarButton(button) {
   // check if menus
-  const buttonMenus = [].slice.call(button.querySelectorAll(":scope > .Menu"));
-  const buttonWindows = [].slice.call(
-    button.querySelectorAll(":scope > .Window")
-  );
-  buttonMenus.forEach((menu) => {
+  var menu = button.querySelector(":scope > .Menu");
+  var programWindow = button.querySelector(":scope > .Window");
+  // if menus
+  if (menu != null) {
     setupMenuButtons(menu);
-  });
-  if (buttonMenus.length != 0 && buttonWindows.length != 0) {
-    // if menus and windows
     button
       .querySelector(":scope > .Internal")
       .addEventListener("click", function () {
         button.classList.toggle("is-active");
-        toggleMenu(button, buttonMenus);
-        toggleWindow(buttonWindows);
-      });
-    buttonWindows.forEach((window) => {
-      setupDragWindow(window);
-      window.addEventListener("mouseup", function () {
-        deselectTaskbarButtons();
-        selectWindow(window);
-      });
-      window.addEventListener("touchend", function () {
-        deselectTaskbarButtons();
-        selectWindow(window);
-      });
-    });
-    // if menus
-  } else if (buttonMenus.length != 0) {
-    button
-      .querySelector(":scope > .Internal")
-      .addEventListener("click", function () {
-        button.classList.toggle("is-active");
-        toggleMenu(button, buttonMenus);
+        toggleMenu(button, menu);
       });
     // if windows
-  } else if (buttonWindows.length != 0) {
+  } else {
     button
       .querySelector(":scope > .Internal")
       .addEventListener("click", function () {
         button.classList.toggle("is-active");
-        toggleWindow(buttonWindows);
+        toggleWindow(programWindow);
       });
-    buttonWindows.forEach((window) => {
-      setupDragWindow(window);
-      window.addEventListener("mouseup", function () {
-        deselectTaskbarButtons();
-        selectWindow(window);
-      });
-      window.addEventListener("touchend", function () {
-        deselectTaskbarButtons();
-        selectWindow(window);
-      });
+    setupDragWindow(programWindow);
+    programWindow.addEventListener("mouseup", function () {
+      deselectTaskbarButtons();
+      selectWindow(programWindow);
     });
+    programWindow.addEventListener("touchend", function () {
+      deselectTaskbarButtons();
+      selectWindow(programWindow);
+    });
+    programWindow
+      .querySelector(".TitleBar_Minimise")
+      .addEventListener("click", function () {
+        button.classList.remove("is-active");
+        programWindow.classList.remove("is-active");
+      });
   }
 }
 
-function toggleMenu(button, buttonMenus) {
+function toggleMenu(button, menu) {
   if (button.classList.contains("is-active")) {
     deselectTaskbarButtons();
     button.classList.add("is-active");
-    buttonMenus.forEach((menu) => {
-      menu.classList.add("is-active");
-    });
+    menu.classList.add("is-active");
   } else {
-    buttonMenus.forEach((menu) => {
-      deactivateMenu(menu);
-    });
+    deactivateMenu(menu);
   }
 }
 
-function toggleWindow(buttonWindows) {
-  buttonWindows.forEach((window) => {
-    if (window.classList.contains("is-active")) {
-      window.classList.remove("is-active");
-      window.classList.remove("selected");
-    } else {
-      window.classList.add("is-active");
-      selectWindow(window);
-    }
-  });
+function toggleWindow(programWindow) {
+  if (programWindow.classList.contains("is-active")) {
+    programWindow.classList.remove("is-active");
+    programWindow.classList.remove("selected");
+  } else {
+    programWindow.classList.add("is-active");
+    selectWindow(programWindow);
+  }
 }
 
-function selectWindow(window) {
-  window.classList.add("selected");
+function selectWindow(programWindow) {
+  programWindow.classList.add("selected");
 }
 
 function setupMenuButtons(menu) {
