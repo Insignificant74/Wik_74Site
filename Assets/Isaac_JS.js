@@ -14,6 +14,8 @@ window.onload = function () {
     deselectTaskbarButtons();
   });
 
+  mapButtons();
+
   Clock.call();
 };
 
@@ -452,6 +454,11 @@ function setupTaskbarButton(button) {
       button.classList.remove("is-active");
       programWindow.classList.remove("is-active");
     });
+  programWindow
+    .querySelector(".TitleBar_Close")
+    .addEventListener("click", function () {
+      button.classList.remove("open");
+    });
 }
 
 function toggleMenu(button, menu) {
@@ -534,6 +541,13 @@ function moveSelection(MenuButtons, targetButton) {
     else {
       button.classList.add("is-active");
     }
+  });
+}
+
+function mapButtons(){
+  document.getElementById("Help").addEventListener("click", function () {
+    document.getElementById("Taskbar_Welcome").classList.add("open");
+    selectWindow(document.getElementById("HelpWindow"));
   });
 }
 

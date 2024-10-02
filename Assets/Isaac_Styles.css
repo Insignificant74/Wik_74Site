@@ -407,7 +407,8 @@ div .Menu img {
   flex-wrap: nowrap !important;
 }
 
-#Taskbar > .Internal > div.button{
+#Taskbar > .Internal > .button{
+  display: none;
   flex: 1 1 auto;
   max-width: 150px;
   width: 100%;
@@ -417,7 +418,11 @@ div .Menu img {
   text-decoration: none !important;
 }
 
-#StartButton > .Internal, #Taskbar > .Internal > div.button > .Internal{
+#Taskbar > .Internal > .button.open{
+  display: flex;
+}
+
+#StartButton > .Internal, #Taskbar > .Internal > .button > .Internal{
   width: 100%;  
   font-size: 16px;
   cursor: pointer;
