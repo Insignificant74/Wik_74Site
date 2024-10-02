@@ -338,7 +338,7 @@ div div a:hover {
   font-size: 0;
 }
 
-.Menu .button {
+.menuButton {
   display: flex;
   align-items: center;
   text-align: left;
@@ -349,7 +349,7 @@ div div a:hover {
   background: none;
 }
 
-.Menu .button.is-active {
+.menuButton.is-active {
   color: #ffffff;
   background-color: #0000a8;
 }
@@ -375,11 +375,11 @@ div .Menu img {
   bottom: 30px;
 }
 
-#StartMenu > .Internal > .button {
+#StartMenu > .Internal > .menuButton {
   height: 36px;
 }
 
-#StartMenu > .Internal  > .button > img {
+#StartMenu > .Internal  > .menuButton > img {
   height: 32px;
 }
 
@@ -417,10 +417,12 @@ div .Menu img {
   text-decoration: none !important;
 }
 
-#Taskbar > .Internal > div.button > .Internal{
+#StartButton > .Internal, #Taskbar > .Internal > div.button > .Internal{
+  width: 100%;  
+  font-size: 16px;
   cursor: pointer;
-  display: flex !important;
-  flex-wrap: nowrap !important;
+  display: flex;
+  flex-wrap: nowrap;
   font-family: "WindowFont";
   align-items: center;
   font-weight: 700;
@@ -442,7 +444,7 @@ div .Menu img {
     inset 0 0 0 2px #dfdfdf;
 }
 
-#Taskbar > .Internal > .button.is-active > .Internal{
+#StartButton.is-active > .Internal, #Taskbar > .Internal > .button.is-active > .Internal{
   border-bottom-color: #ffffff;
   border-right-color: #ffffff;
   border-top-color: #000000;
@@ -451,17 +453,21 @@ div .Menu img {
     inset 0 0 0 2px gray;
 }
 
-#Taskbar > .Internal > .button > .Internal > img {
+#StartButton > .Internal > img, #Taskbar > .Internal > .button > .Internal > img {
   height: 20px;
   object-fit: contain;
   padding-right: 2px;
 }
 
-#Taskbar #StartButton {
+#StartButton {
   flex: none;
   width: 64px;
   margin-left: 2px !important;
   margin-right: 6px !important;
+  max-width: 150px;
+  overflow: clip;
+  outline: none !important;
+  text-decoration: none !important;
 }
 
 #Taskbar #StartButton.is-active {
