@@ -34,9 +34,6 @@ body {
   padding: 0;
   margin: 0;
   touch-action: none;
-}
-
-img {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -126,7 +123,7 @@ div div a:hover {
   z-index: 100;
 }
 
-.Window.is-active{
+.button.is-active .Window{
   display: grid;
 }
 
@@ -254,11 +251,8 @@ div div a:hover {
 }
 
 .TitleBar .button{
-  align-items: center;
-  text-align: center;
   width: 24px;
   height: 24px;
-  font-size: 19px;
   border-width: 2px;
   border-style: solid;
   border-bottom-color: #000000;
@@ -367,6 +361,31 @@ div .Menu img {
   border-bottom: none;
   border-top: 1px solid #808080;
   background-color: #ffffff;
+}
+
+.Window .TitleBar_Minimise{
+  background-image: url("Minimise.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center; 
+}
+
+.Window .TitleBar_Maximise{
+  background-image: url("maximise.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center; 
+}
+
+.Window .TitleBar_Close{
+  background-image: url("Close.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center; 
+}
+
+.Window.maximised .TitleBar_Maximise{
+  background-image: url("unmaximise.png");
 }
 
 #StartMenu {

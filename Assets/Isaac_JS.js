@@ -237,8 +237,8 @@ function setupDragWindow(programWindow) {
   }
 
   function drag(e) {
-    if (!active) return;
-
+    if (!active || e.target.classList.contains("button")) return;
+    programWindow.classList.remove("maximised");
     e.preventDefault();
 
     if (e.type === "touchmove") {
@@ -436,8 +436,7 @@ function setupTaskbarButton(button) {
   button
     .querySelector(":scope > .Internal")
     .addEventListener("click", function () {
-      button.classList.toggle("is-active");
-      toggleWindow(programWindow);
+      toggleWindow(button, programWindow);
     });
   setupDragWindow(programWindow);
   programWindow.addEventListener("mouseup", function () {
@@ -452,7 +451,28 @@ function setupTaskbarButton(button) {
     .querySelector(".TitleBar_Minimise")
     .addEventListener("click", function () {
       button.classList.remove("is-active");
-      programWindow.classList.remove("is-active");
+    });
+  programWindow
+    .querySelector(".TitleBar_Maximise")
+    .addEventListener("click", function () {
+      if (programWindow.classList.contains("maximised")){
+        programWindow.style.left = programWindow.oldLeft;
+        programWindow.style.right = programWindow.oldRight;
+        programWindow.style.top = programWindow.oldTop;
+        programWindow.style.bottom = programWindow.oldBottom;
+        programWindow.classList.remove("maximised");
+      }
+      else{
+        programWindow.oldLeft = programWindow.style.left;
+        programWindow.oldRight = programWindow.style.right;
+        programWindow.oldTop = programWindow.style.top;
+        programWindow.oldBottom = programWindow.style.bottom;
+        programWindow.style.left = "0px";
+        programWindow.style.right = "0px";
+        programWindow.style.top = "0px";
+        programWindow.style.bottom = "28px";
+        programWindow.classList.add("maximised");
+      }
     });
   programWindow
     .querySelector(".TitleBar_Close")
@@ -471,12 +491,12 @@ function toggleMenu(button, menu) {
   }
 }
 
-function toggleWindow(programWindow) {
-  if (programWindow.classList.contains("is-active")) {
-    programWindow.classList.remove("is-active");
+function toggleWindow(button, programWindow) {
+  if (button.classList.contains("is-active")) {
+    button.classList.remove("is-active");
     programWindow.classList.remove("selected");
   } else {
-    programWindow.classList.add("is-active");
+    button.classList.add("is-active");
     selectWindow(programWindow);
   }
 }
@@ -544,7 +564,7 @@ function moveSelection(MenuButtons, targetButton) {
   });
 }
 
-function mapButtons(){
+function mapButtons() {
   document.getElementById("Help").addEventListener("click", function () {
     document.getElementById("Taskbar_Welcome").classList.add("open");
     selectWindow(document.getElementById("HelpWindow"));
