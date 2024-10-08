@@ -430,9 +430,7 @@ function setupMenus() {
 }
 
 function setupTaskbarButton(button) {
-  console.log(button);
   var programWindow = button.querySelector(":scope > .Window");
-  console.log(programWindow);
   button
     .querySelector(":scope > .Internal")
     .addEventListener("click", function () {
