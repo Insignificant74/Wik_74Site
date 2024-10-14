@@ -96,21 +96,7 @@ div div a:hover {
 .TextBox {
   color: black;
   font: 0.75em "Postal", sans-serif;
-}
-
-.Background1 {
-  background: url(Paper_Middle_1.png) no-repeat;
-}
-.Background2 {
-  background: url(Paper_Middle_2.png) no-repeat;
-}
-
-.Background3 {
-  background: url(Paper_Middle_3.png) no-repeat;
-}
-
-.Background4 {
-  background: url(Paper_Middle_4.png) no-repeat;
+  background-repeat: no-repeat;
 }
 
 .Border {

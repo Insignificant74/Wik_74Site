@@ -1,6 +1,7 @@
 window.onload = function () {
-	setToggleIndex.call();
+	formatTextBoxes.call();
 	resizeImages.call();
+	setToggleIndex.call();
 }
 function setToggleIndex(){
 	const Index = document.getElementById('Index');
@@ -18,4 +19,16 @@ function setToggleIndex(){
 			Index.classList.toggle('is-active');
 		});
 	}
+}
+function formatTextBoxes(){
+	const TextBoxes = document.querySelectorAll('.TextBox');
+	var counter = 3;
+	TextBoxes.forEach((textBox) => {
+		counter++;
+		textBox.style.backgroundImage = "url(Assets/Paper_Middle_" + counter + ".png)";
+		console.log("url(\"Paper_Middle_" + counter + ".png\")");
+		if (counter == 4){
+			counter = 0;
+		}
+	});
 }
