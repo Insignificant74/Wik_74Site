@@ -6,9 +6,9 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./site/:/var/www/html/
+    links:
+      - php
   php:
-    image: php:8.4.0alpha4-fpm
-    expose:
-      - 9000
+    image: php:8-fpm
     volumes:
       - ./site/:/var/www/html/
