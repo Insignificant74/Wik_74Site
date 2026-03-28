@@ -564,8 +564,11 @@ function moveSelection(MenuButtons, targetButton) {
 
 function mapButtons() {
   document.getElementById("Help").addEventListener("click", function () {
-    document.getElementById("Taskbar_Welcome").classList.add("open");
+    document.getElementById("Taskbar_Welcome").classList.add("open", "is-active");
     selectWindow(document.getElementById("HelpWindow"));
+  });
+  document.getElementById("Article_1").addEventListener("click", function () {
+    document.getElementById("Taskbar_Article_1").classList.add("open", "is-active");
   });
 }
 
