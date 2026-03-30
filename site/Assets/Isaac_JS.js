@@ -453,14 +453,14 @@ function setupTaskbarButton(button) {
   programWindow
     .querySelector(".TitleBar_Maximise")
     .addEventListener("click", function () {
-      if (programWindow.classList.contains("maximised")){
+      if (programWindow.classList.contains("maximised")) {
         programWindow.style.left = programWindow.oldLeft;
         programWindow.style.right = programWindow.oldRight;
         programWindow.style.top = programWindow.oldTop;
         programWindow.style.bottom = programWindow.oldBottom;
         programWindow.classList.remove("maximised");
       }
-      else{
+      else {
         programWindow.oldLeft = programWindow.style.left;
         programWindow.oldRight = programWindow.style.right;
         programWindow.oldTop = programWindow.style.top;

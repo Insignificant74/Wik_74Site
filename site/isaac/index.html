@@ -1,172 +1,176 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--Need to: dragging taskbar buttons, redo rescalling upon screen resize plus initial render, content-->
-    <title>Isaac's Page</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-      charset="UTF-8"
-    />
-    <link rel="stylesheet" href="../Assets/Isaac_Styles.css" />
-    <link rel="stylesheet" href="../Assets/Shared_Styles.css" />
-  </head>
-  <body>
-    <img id="Background" src="../Assets/Isaac_Background.jpg" />
-    <div id="MouseTracker"></div>
-    <div id="MainContainer">
 
-      <h1 class="Header">Header</h1>
-      <p class="Comment">Comment</p>
+<head>
+  <!--Need to: dragging taskbar buttons, redo rescalling upon screen resize plus initial render, content-->
+  <title>Isaac's Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" />
+  <link rel="stylesheet" href="../Assets/Isaac_Styles.css" />
+  <link rel="stylesheet" href="../Assets/Shared_Styles.css" />
+</head>
 
-      <div class="ContentBlocks">
-        <div id="Article_1" class="Textbox TextLeft">
-          1
-        </div>
-        <img class="BlockImages ImageRight" src="../Assets/Half Head Statue.png" />
+<body>
+  <img id="Background" src="../Assets/Isaac_Background.jpg" />
+  <div id="MouseTracker"></div>
+  <div id="MainContainer">
+
+    <p class="Comment">Comment</p>
+
+    <div class="ContentBlocks">
+      <div id="Article_1" class="Textbox TextLeft">
+        <h1 class="Header">Header</h1>
+        dedeeedefseyfsfhebdheyddeededfb edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb
+        edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb
+        edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb
+        edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb
+        edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb edvbebdebebdbdedeeedefseyfsfhebdheyddeededfb edvbebdebebdb
       </div>
-      <div class="ContentBlocks">
-        <img class="BlockImages ImageLeft" src="../Assets/Dolphin.png" />
-        <div class="Textbox TextRight">
-          2
-        </div>
-      </div>
-      <div class="ContentBlocks">
-        <div class="Textbox TextLeft">
-          3
-        </div>
-        <img class="BlockImages ImageRight" src="../Assets/Palm Tree.png" />
-      </div>
-      <div class="ContentBlocks">
-        <img class="BlockImages ImageLeft" src="../Assets/Bust Statue.png" />
-        <div class="Textbox TextRight">
-          4
-        </div>
-      </div>
-      <div class="ContentBlocks">
-        <div class="Textbox TextLeft">
-          5
-        </div>
-        <img class="BlockImages ImageRight" src="../Assets/Sign.png" />
-      </div>
-      
+      <img class="BlockImages ImageRight" src="../Assets/Half Head Statue.png" />
     </div>
-    <div id="Taskbar">
-      <div class="Internal">
-        <div class="menuButton" id="StartButton">
+    <div class="ContentBlocks">
+      <img class="BlockImages ImageLeft" src="../Assets/Dolphin.png" />
+      <div class="Textbox TextRight">
+        2
+      </div>
+    </div>
+    <div class="ContentBlocks">
+      <div class="Textbox TextLeft">
+        3
+      </div>
+      <img class="BlockImages ImageRight" src="../Assets/Palm Tree.png" />
+    </div>
+    <div class="ContentBlocks">
+      <img class="BlockImages ImageLeft" src="../Assets/Bust Statue.png" />
+      <div class="Textbox TextRight">
+        4
+      </div>
+    </div>
+    <div class="ContentBlocks">
+      <div class="Textbox TextLeft">
+        5
+      </div>
+      <img class="BlockImages ImageRight" src="../Assets/Sign.png" />
+    </div>
+
+  </div>
+  <div id="Taskbar">
+    <div class="Internal">
+      <div class="menuButton" id="StartButton">
+        <div class="Internal">
+          <img src="../Assets/Windows_95_Logo.png" /><b>Start</b>
+        </div>
+        <div id="StartMenu" class="Menu">
+          <div id="StartBanner"><b>Windows</b>95</div>
           <div class="Internal">
-            <img src="../Assets/Windows_95_Logo.png" /><b>Start</b>
-          </div>
-          <div id="StartMenu" class="Menu">
-            <div id="StartBanner"><b>Windows</b>95</div>
-            <div class="Internal">
-              <div class="menuButton" id = "Programs">
-                <img src="../Assets/Programs_Icon.png" /><u>P</u>rograms
-                <div class="RightArrow">🞂</div>
-                <div id="ProgramsMenu" class="Menu">
-                  <div class="Internal">
-                    <div class="menuButton">
-                      <img src="../Assets/Help_Icon.png" />Accessories
-                    </div>
-                    <div class="menuButton">
-                      <img src="../Assets/Run_Icon.png" />StartUp
-                    </div>
-                    <div class="menuButton">
-                      <img src="../Assets/Run_Icon.png" />MS-DOS Prompt
-                    </div>
-                    <div class="menuButton">
-                      <img src="../Assets/Run_Icon.png" />Windows Explorer
-                    </div>
+            <div class="menuButton" id="Programs">
+              <img src="../Assets/Programs_Icon.png" /><u>P</u>rograms
+              <div class="RightArrow">🞂</div>
+              <div id="ProgramsMenu" class="Menu">
+                <div class="Internal">
+                  <div class="menuButton">
+                    <img src="../Assets/Help_Icon.png" />Accessories
+                  </div>
+                  <div class="menuButton">
+                    <img src="../Assets/Run_Icon.png" />StartUp
+                  </div>
+                  <div class="menuButton">
+                    <img src="../Assets/Run_Icon.png" />MS-DOS Prompt
+                  </div>
+                  <div class="menuButton">
+                    <img src="../Assets/Run_Icon.png" />Windows Explorer
                   </div>
                 </div>
               </div>
-              <br />
-              <div class="menuButton" id = "Documents">
-                <img src="../Assets/Documents_Icon.png" /><u>D</u>ocuments
-                <div class="RightArrow">🞂</div>
-              </div>
-              <br />
-              <div class="menuButton" id = "Settings">
-                <img src="../Assets/Settings_Icon.png" /><u>S</u>ettings
-                <div class="RightArrow">🞂</div>
-              </div>
-              <br />
-              <div class="menuButton" id = "Find">
-                <img src="../Assets/Find_Icon.png" /><u>F</u>ind
-                <div class="RightArrow">🞂</div>
-              </div>
-              <br />
-              <div class="menuButton" id = "Help">
-                <img src="../Assets/Help_Icon.png" /><u>H</u>elp
-              </div>
-              <br />
-              <div class="menuButton" id = "Run">
-                <img src="../Assets/Run_Icon.png" /><u>R</u>un...
-              </div>
-              <br />
-              <hr />
-              <div class="menuButton" id = "Shut_Down">
-                <img src="../Assets/Shut_Down_Icon.png" />Sh<u>u</u>t Down...
-              </div>
-              <br />
             </div>
+            <br />
+            <div class="menuButton" id="Documents">
+              <img src="../Assets/Documents_Icon.png" /><u>D</u>ocuments
+              <div class="RightArrow">🞂</div>
+            </div>
+            <br />
+            <div class="menuButton" id="Settings">
+              <img src="../Assets/Settings_Icon.png" /><u>S</u>ettings
+              <div class="RightArrow">🞂</div>
+            </div>
+            <br />
+            <div class="menuButton" id="Find">
+              <img src="../Assets/Find_Icon.png" /><u>F</u>ind
+              <div class="RightArrow">🞂</div>
+            </div>
+            <br />
+            <div class="menuButton" id="Help">
+              <img src="../Assets/Help_Icon.png" /><u>H</u>elp
+            </div>
+            <br />
+            <div class="menuButton" id="Run">
+              <img src="../Assets/Run_Icon.png" /><u>R</u>un...
+            </div>
+            <br />
+            <hr />
+            <div class="menuButton" id="Shut_Down">
+              <img src="../Assets/Shut_Down_Icon.png" />Sh<u>u</u>t Down...
+            </div>
+            <br />
           </div>
         </div>
-
-        <div id="Taskbar_Welcome" class="button open is-active">
-          <div class="Internal">Welcome</div>
-          <div id="HelpWindow" class="Window selected" style="left: 400px; right: 400px; top: 200px; bottom: 200px;">
-            <div class="Window_TopLeftBorder"></div>
-            <div class="Window_TopBorder"></div>
-            <div class="Window_TopRightBorder"></div>
-            <div class="Window_LeftBorder"></div>
-            <div class="Window_Internal">
-              <div class="TitleBar">
-                Welcome
-                <div class="TitleBar_Buttons">
-                  <div class="button TitleBar_Minimise"></div>
-                  <div class="button TitleBar_Maximise"></div>
-                  <div class="button TitleBar_Close"></div>
-                </div>
-              </div>
-              <div class="Internal">Hiii</div>
-            </div>
-            <div class="Window_RightBorder"></div>
-            <div class="Window_BottomLeftBorder"></div>
-            <div class="Window_BottomBorder"></div>
-            <div class="Window_BottomRightBorder"></div>
-          </div>
-        </div>
-        
-        <div id="Taskbar_Article_1" class="button is-active">
-          <div class="Internal">Fuck Off</div>
-          <div id="Article_Window_1" class="Window selected" style="left: 400px; right: 400px; top: 200px; bottom: 200px;">
-            <div class="Window_TopLeftBorder"></div>
-            <div class="Window_TopBorder"></div>
-            <div class="Window_TopRightBorder"></div>
-            <div class="Window_LeftBorder"></div>
-            <div class="Window_Internal">
-              <div class="TitleBar">
-                Goodbye
-                <div class="TitleBar_Buttons">
-                  <div class="button TitleBar_Minimise"></div>
-                  <div class="button TitleBar_Maximise"></div>
-                  <div class="button TitleBar_Close"></div>
-                </div>
-              </div>
-              <div class="Internal">Hello</div>
-            </div>
-            <div class="Window_RightBorder"></div>
-            <div class="Window_BottomLeftBorder"></div>
-            <div class="Window_BottomBorder"></div>
-            <div class="Window_BottomRightBorder"></div>
-          </div>
-        </div>
-
-        <div id="Time"></div>
       </div>
+
+      <div id="Taskbar_Welcome" class="button open is-active">
+        <div class="Internal">Welcome</div>
+        <div id="HelpWindow" class="Window selected" style="left: 400px; right: 400px; top: 200px; bottom: 200px;">
+          <div class="Window_TopLeftBorder"></div>
+          <div class="Window_TopBorder"></div>
+          <div class="Window_TopRightBorder"></div>
+          <div class="Window_LeftBorder"></div>
+          <div class="Window_Internal">
+            <div class="TitleBar">
+              Welcome
+              <div class="TitleBar_Buttons">
+                <div class="button TitleBar_Minimise"></div>
+                <div class="button TitleBar_Maximise"></div>
+                <div class="button TitleBar_Close"></div>
+              </div>
+            </div>
+            <div class="Internal">Hiii</div>
+          </div>
+          <div class="Window_RightBorder"></div>
+          <div class="Window_BottomLeftBorder"></div>
+          <div class="Window_BottomBorder"></div>
+          <div class="Window_BottomRightBorder"></div>
+        </div>
+      </div>
+
+      <div id="Taskbar_Article_1" class="button is-active">
+        <div class="Internal">Fuck Off</div>
+        <div id="Article_Window_1" class="Window selected"
+          style="left: 400px; right: 400px; top: 200px; bottom: 200px;">
+          <div class="Window_TopLeftBorder"></div>
+          <div class="Window_TopBorder"></div>
+          <div class="Window_TopRightBorder"></div>
+          <div class="Window_LeftBorder"></div>
+          <div class="Window_Internal">
+            <div class="TitleBar">
+              Goodbye
+              <div class="TitleBar_Buttons">
+                <div class="button TitleBar_Minimise"></div>
+                <div class="button TitleBar_Maximise"></div>
+                <div class="button TitleBar_Close"></div>
+              </div>
+            </div>
+            <div class="Internal">Hello</div>
+          </div>
+          <div class="Window_RightBorder"></div>
+          <div class="Window_BottomLeftBorder"></div>
+          <div class="Window_BottomBorder"></div>
+          <div class="Window_BottomRightBorder"></div>
+        </div>
+      </div>
+
+      <div id="Time"></div>
     </div>
-    <script src="../Assets/Shared_JS.js"></script>
-    <script src="../Assets/Isaac_JS.js"></script>
-  </body>
+  </div>
+  <script src="../Assets/Shared_JS.js"></script>
+  <script src="../Assets/Isaac_JS.js"></script>
+</body>
+
 </html>
