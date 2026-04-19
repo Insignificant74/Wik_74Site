@@ -569,7 +569,6 @@ function mapButtons() {
   });
   var doc;
   var i = 1;
-  var a;
   while ((doc = document.getElementById("Article_" + i)) != null) {
     doc.addEventListener("click", function () {
       document.getElementById(("Taskbar_Article_" + this.id.substr(this.id.length - 1))).classList.add("open", "is-active");
