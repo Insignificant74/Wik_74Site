@@ -567,9 +567,15 @@ function mapButtons() {
     document.getElementById("Taskbar_Welcome").classList.add("open", "is-active");
     selectWindow(document.getElementById("HelpWindow"));
   });
-  document.getElementById("Article_1").addEventListener("click", function () {
-    document.getElementById("Taskbar_Article_1").classList.add("open", "is-active");
-  });
+  var doc;
+  var i = 1;
+  var a;
+  while ((doc = document.getElementById("Article_" + i)) != null) {
+    doc.addEventListener("click", function () {
+      document.getElementById(("Taskbar_Article_" + this.id.substr(this.id.length - 1))).classList.add("open", "is-active");
+    })
+    i++;
+  };
 }
 
 function Clock() {
