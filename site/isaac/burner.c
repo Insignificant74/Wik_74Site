@@ -79,6 +79,7 @@ int main(void)
   const char *article_end_locator = "<!--Articles_End-->";
   const char *taskbar_start_locator = "<!--Taskbar_Articles_Start-->";
   const char *taskbar_end_locator = "<!--Taskbar_Articles_End-->";
+  const int max_article_preview_length = 100;
 
   FILE *fptr = fopen("temp.html", "w");
 
@@ -145,7 +146,18 @@ int main(void)
       printf("Error getting element \"text\": %s\n", json_error_to_string(error));
       return -1;
     }
-    char *text = result_unwrap(json_element)(&t_element_result).value.as_string;
+    char *text_in = result_unwrap(json_element)(&t_element_result).value.as_string;
+    char *text = malloc(max_article_preview_length + 3);
+    int k;
+
+    for (k = 0; k < max_article_preview_length; k++)
+    {
+      text[k] = text_in[k];
+    }
+    text[k++] = '.';
+    text[k++] = '.';
+    text[k++] = '.';
+    text[k++] = '\0';
 
     fprintf(fptr, "\n<div class=\"ContentBlocks\">\n");
     if (i % 2)
