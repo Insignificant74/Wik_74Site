@@ -4,7 +4,6 @@ Isaac_Site:
 -Windows dont show up as selected when showing up from clicking article title, this is because clicking them counts as clicking on the desktop which deselects them, too much work to fix, its fine
 -Technically if an input json string ends in \ it will break the reading but why in the world would any input sting end in a \ out of all things
 
-+Need to trim text of page article if above certain length (burner)
 +Need to apply html formatting to text from jsons (burner)
 +Need to add images from jsons to html (burner)
 +Need to add dragging taskbar buttons (JavaScript)
